@@ -14,6 +14,9 @@ module.exports = {
     extend: {
       fontFamily: {
         inter: ["Inter", "sans-serif"],
+      },
+      transitionTimingFunction: {
+        'default': 'cubic-bezier(.61,.38,.33,.95)'
       }
     },
   },
