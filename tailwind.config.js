@@ -9,7 +9,8 @@ module.exports = {
     colors: {
       'bs-pink' :'#f9cdcd',
       'bs-dark' : '#252422',
-      'bs-light' : '#f4f4f4'
+      'bs-light' : '#f4f4f4',
+      'bs-white': '#ffffff'
     },
     extend: {
       fontFamily: {
@@ -17,6 +18,12 @@ module.exports = {
       },
       transitionTimingFunction: {
         'default': 'cubic-bezier(.61,.38,.33,.95)'
+      },
+      keyframes: {
+        lineProgressLinear: {
+          '0%, 100%': { transform: 'rotate(-3deg)' },
+          '50%': { transform: 'rotate(3deg)' },
+        }
       }
     },
   },

@@ -21,3 +21,7 @@
   font-named-instance: "Bold";
   src: url(/fonts/Inter-SemiBold.woff2) format("woff2");
 }
+
+.bs-cursor-container{
+  cursor: none;
+}
