@@ -13,10 +13,11 @@ const config: GatsbyConfig = {
     resolve: 'gatsby-source-filesystem',
     options: {
       "name": "images",
-      "path": "./src/images/"
+      "path": "./src/content/"
     },
     __key: "images"
-  }]
+  },
+    `gatsby-transformer-remark`]
 };
 
 export default config;
