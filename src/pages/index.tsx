@@ -1,12 +1,15 @@
 import * as React from "react";
-import type { HeadFC, PageProps } from "gatsby";
+import type { Page } from "gatsby";
+import {graphql, PageProps} from "gatsby"
 import { Helmet } from "react-helmet";
 import { motion } from "framer-motion";
 import Awards from "../components/awards";
 import { awards as awardsData, clients as clientsData } from "./index-data";
 import LinkButton from "../components/link-button";
 import GridShowcase from "../components/grid-showcase";
-const IndexPage: React.FC<PageProps> = () => {
+
+const IndexPage = ({data} : PageProps<Queries.GridShowcaseQuery>) => {
+
   const [cursorPosition, setCursorPosition] = React.useState({
     x: window.innerWidth / 2 - 60,
     y: window.innerHeight / 3 - 60,
@@ -95,7 +98,7 @@ const IndexPage: React.FC<PageProps> = () => {
           </section>
 
           <section>
-            <GridShowcase items={clientsData} />
+           <GridShowcase data={data} />
           </section>
           
         </div>
@@ -105,3 +108,29 @@ const IndexPage: React.FC<PageProps> = () => {
 };
 
 export default IndexPage;
+
+
+export const ShowCaseQuery = graphql`
+  query GridShowcase {
+    allMarkdownRemark {
+      edges {
+        node {
+          frontmatter {
+            title
+            featuredImgAlt
+            featureVideoURL
+            mediaType
+            path
+            excerpt
+            featuredImage {
+              childImageSharp {
+                gatsbyImageData(width: 500, placeholder: DOMINANT_COLOR)
+              }
+            }
+          }
+          id
+        }
+      }
+    }
+  }
+`;

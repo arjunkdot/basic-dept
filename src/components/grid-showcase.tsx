@@ -1,34 +1,30 @@
-import { graphql, Link } from "gatsby";
+import { PageProps, Link } from "gatsby";
 import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 
-interface GridShowcaseProps {
-  items: {
-    id: number;
-    video: boolean;
-    videoType?: string;
-    mediaURL: string;
-    path: string;
-    title: string;
-    description: string;
-  }[];
-}
-const GridShowcase = ({ items }: GridShowcaseProps) => {
+
+const GridShowcase = ({data} : PageProps<Queries.GridShowcaseQuery>) => {
   return (
     <ul>
-      {items.map((item) => {
+      {data.allMarkdownRemark.edges.map((edge) => {
         return (
-          <li key={item.id}>
-            <Link to={item.path}>
-              {item.video ? (
+          <li key={edge.node?.id}>
+            <Link to={edge.node?.frontmatter?.path}>
+              {edge.node?.frontmatter?.mediaType === "video" ? (
                 <video autoPlay loop muted>
-                  <source src={item.mediaURL} type={item.videoType} />
+                  <source
+                    src={edge.node.frontmatter.featureVideoURL}
+                    type="video/mp4"
+                  />
                 </video>
               ) : (
-                <img src="dgd" alt={item.title} />
+                <GatsbyImage
+                  image={getImage(edge.node?.frontmatter?.featuredImage?.childImageSharp?.gatsbyImageData)}
+                  alt="h"
+                />
               )}
-              <h2>{item.title}</h2>
-              <p>{item.description}</p>
+              <h2>{edge.node?.frontmatter?.title}</h2>
+              <p>{edge.node?.frontmatter?.excerpt}</p>
             </Link>
           </li>
         );
@@ -39,26 +35,3 @@ const GridShowcase = ({ items }: GridShowcaseProps) => {
 
 export default GridShowcase;
 
-export const pageQuery = graphql`
-  query {
-    showCaseInformation: allMarkdownRemark {
-      edges {
-        node {
-          frontmatter {
-            title
-            featuredImgAlt
-            featureVideoURL
-            mediaType
-            path
-            excerpt
-            featuredImage {
-              childImageSharp {
-                gatsbyImageData(width: 500, placeholder: DOMINANT_COLOR)
-              }
-            }
-          }
-        }
-      }
-    }
-  }
-`;

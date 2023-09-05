@@ -2,7 +2,7 @@
 title: Google Store
 mediaType: video
 featuredImage: ../../images/patagonia-hero.jpg
-featureVideoURL: ../../static/videos/google-store-hero.mp4
+featureVideoURL: ../../videos/google-store-hero.mp4
 featuredImgAlt: Google Store
 excerpt: An eCommerce experience helping Google bring its hardware to people across the globe
 path: /
