@@ -1,7 +1,7 @@
 ---
 title: Patagonia
 mediaType: image
-featuredImgUrl: ../../static/images/patagonia-hero.jpg
+featuredImage: ../../images/patagonia-hero.jpg
 featuredImgAlt: Patagonia
 excerpt: An eCommerce experience driven by Patagonia’s brand mission
 path: /

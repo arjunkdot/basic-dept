@@ -1,8 +1,9 @@
 ---
 title: Google Store
 mediaType: video
-featuredImgUrl: ../../static/videos/google-store-hero.mp4
-featuredImgAlt: Wilson
+featuredImage: ../../images/patagonia-hero.jpg
+featureVideoURL: ../../static/videos/google-store-hero.mp4
+featuredImgAlt: Google Store
 excerpt: An eCommerce experience helping Google bring its hardware to people across the globe
 path: /
 ---

@@ -1,7 +1,7 @@
 ---
 title: Wilson
 mediaType: image
-featuredImgUrl: /images/wilson-hero.jpg
+featuredImage: ../../images/wilson-hero.jpg
 featuredImgAlt: Wilson
 excerpt: A century-old sports brand finding its place in culture
 path: /

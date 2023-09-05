@@ -25,7 +25,7 @@ const GridShowcase = ({ items }: GridShowcaseProps) => {
                   <source src={item.mediaURL} type={item.videoType} />
                 </video>
               ) : (
-                <img src="dgd" alt={item.title}/>
+                <img src="dgd" alt={item.title} />
               )}
               <h2>{item.title}</h2>
               <p>{item.description}</p>
@@ -38,3 +38,27 @@ const GridShowcase = ({ items }: GridShowcaseProps) => {
 };
 
 export default GridShowcase;
+
+export const pageQuery = graphql`
+  query {
+    showCaseInformation: allMarkdownRemark {
+      edges {
+        node {
+          frontmatter {
+            title
+            featuredImgAlt
+            featureVideoURL
+            mediaType
+            path
+            excerpt
+            featuredImage {
+              childImageSharp {
+                gatsbyImageData(width: 500, placeholder: DOMINANT_COLOR)
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
