@@ -4,6 +4,7 @@ module.exports = {
     `./src/pages/**/*.{js,jsx,ts,tsx}`,
     `./src/layouts/**/*.{js,jsx,ts,tsx}`,
     `./src/components/**/*.{js,jsx,ts,tsx}`,
+    `./src/sections/**/*.{js,jsx,ts,tsx}`,
   ],
   theme: {
     colors: {

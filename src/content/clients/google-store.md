@@ -6,6 +6,7 @@ featureVideoURL: ../../videos/google-store-hero.mp4
 featuredImgAlt: Google Store
 excerpt: An eCommerce experience helping Google bring its hardware to people across the globe
 path: /
+order: 3
 ---
 Since 2017, our team has worked closely with the Google Hardware team to launch new products and help turn store.google.com into a world-class brand and eCommerce destination.
 

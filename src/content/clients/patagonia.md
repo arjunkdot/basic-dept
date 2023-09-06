@@ -5,6 +5,7 @@ featuredImage: ../../images/patagonia-hero.jpg
 featuredImgAlt: Patagonia
 excerpt: An eCommerce experience driven by Patagonia’s brand mission
 path: /
+order: 1
 ---
 Patagonia is a family-owned apparel and outdoor sporting goods outfitter, rooted in sustainability. As a leader in eco-friendly business models, they’ve paved the way for others to reimagine their practices with sustainability in mind.
 
