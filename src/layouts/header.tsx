@@ -3,26 +3,32 @@ import { Link } from "gatsby";
 
 const headerNavItems = [
   {
+    id: 1,
     label: "Work",
     path: "work",
   },
   {
+    id: 2,
     label: "About",
     path: "about",
   },
   {
+    id: 3,
     label: "News",
     path: "news",
   },
   {
+    id: 4,
     label: "Thinking",
     path: "thinking",
   },
   {
+    id: 5,
     label: "Careers",
     path: "careers",
   },
   {
+    id: 6,
     label: "Contact",
     path: "contact",
   },
@@ -30,7 +36,7 @@ const headerNavItems = [
 const Header = () => {
   return (
     <header className="relative z-10">
-      <div className="mx-auto fixed flex justify-between items-center  w-full h-[126px] max-w-[90%]  top-0 left-1/2 translate-x-[-50%]">
+      <div className="bs-wrapper fixed flex justify-between items-center  w-full h-[126px]  top-0 left-1/2 translate-x-[-50%]">
         <Link to="/">
           <figure className="w-40 h-auto">
             <svg
@@ -44,7 +50,7 @@ const Header = () => {
         </Link>
         <nav className="w-[48%] max-w-[700px] mr-[9rem]">
           <ul className="flex justify-between uppercase text-sm text-bs-light">
-            {headerNavItems.map(item => <li className="relative after:content-[''] after:absolute after:w-[0%] after:h-[1px] after:right-0 after:bottom-[2px] after:bg-bs-light after:ease-default after:duration-300 hover:after:w-[100%] hover:after:left-0 hover:after:ease-default hover:after:duration-300"><Link to={item.path}>{item.label}</Link></li>)}
+            {headerNavItems.map(item => <li key={item.id} className="relative after:content-[''] after:absolute after:w-[0%] after:h-[1px] after:right-0 after:bottom-[2px] after:bg-bs-light after:ease-default after:duration-300 hover:after:w-[100%] hover:after:left-0 hover:after:ease-default hover:after:duration-300"><Link to={item.path}>{item.label}</Link></li>)}
           </ul>
         </nav>
         <button className="group w-10 h-10 rounded-full cursor-pointer">

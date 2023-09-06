@@ -12,11 +12,20 @@ const config: GatsbyConfig = {
   plugins: ["gatsby-plugin-layout", "gatsby-plugin-postcss", "gatsby-plugin-image", "gatsby-plugin-sharp", "gatsby-transformer-sharp", 'gatsby-plugin-react-helmet', {
     resolve: 'gatsby-source-filesystem',
     options: {
+      "name": "content",
+      "path": `${__dirname}/src/content`
+    },
+    __key: "content"
+  },
+  {
+    resolve: 'gatsby-source-filesystem',
+    options: {
       "name": "images",
-      "path": "./src/images/"
+      "path": `${__dirname}/src/images/`
     },
     __key: "images"
-  }]
+  },
+    `gatsby-transformer-remark`]
 };
 
 export default config;
