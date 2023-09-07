@@ -1,14 +1,15 @@
 import * as React from "react";
-import type { Page } from "gatsby";
 import { graphql, PageProps } from "gatsby";
 import { Helmet } from "react-helmet";
+import { awards as awardsData } from "./index-data";
 import Awards from "../components/awards";
 import CompanyIntro from "../sections/index/company-intro";
 import GridShowcase from "../components/grid-showcase";
-import { awards as awardsData, clients as clientsData } from "./index-data";
 import HeroSlider from "../sections/index/hero-slider";
+import FeaturedEngagements from "../sections/index/featured-engagements";
 
 const IndexPage = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
+ const caseStudies = data.caseStudies;
   return (
     <>
       <div className="bs-noise-background"></div>
@@ -24,7 +25,8 @@ const IndexPage = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
         <div className="bs-wrapper">
           <Awards items={awardsData} />
           <CompanyIntro />
-          <GridShowcase data={data} />
+          <GridShowcase data={caseStudies} />
+          <FeaturedEngagements />
         </div>
       </main>
     </>
@@ -35,7 +37,10 @@ export default IndexPage;
 
 export const ShowCaseQuery = graphql`
   query GridShowcase {
-    allMarkdownRemark(sort: { frontmatter: { order: ASC } }) {
+    caseStudies: allMarkdownRemark(
+      sort: { frontmatter: { order: ASC } }
+      filter: { frontmatter: { type: { eq: "case-study" } } }
+    ) {
       edges {
         node {
           frontmatter {

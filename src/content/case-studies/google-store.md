@@ -1,5 +1,6 @@
 ---
 title: Google Store
+type: case-study
 mediaType: video
 featuredImage: ../../images/patagonia-hero.jpg
 featureVideoURL: ../../videos/google-store-hero.mp4

@@ -7,7 +7,7 @@ const GridShowcase = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
   return (
     <section>
       <ul className="grid grid-cols-3 gap-6 mt-20 mb-20">
-        {data.allMarkdownRemark.edges.map((edge) => {
+        {data.edges.map((edge) => {
           return (
             <li key={edge.node?.id} className="group overflow-hidden">
               <Link to={edge.node?.frontmatter?.path as string}>
