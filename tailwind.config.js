@@ -11,7 +11,8 @@ module.exports = {
       'bs-pink' :'#f9cdcd',
       'bs-dark' : '#252422',
       'bs-light' : '#f4f4f4',
-      'bs-white': '#ffffff'
+      'bs-white': '#ffffff',
+      'bs-transparent': 'transparent'
     },
     extend: {
       fontFamily: {

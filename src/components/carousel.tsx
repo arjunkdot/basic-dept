@@ -1,16 +1,39 @@
-import React, {
-  PropsWithChildren,
-  useState,
-  useEffect,
-  useRef,
-  MouseEventHandler,
-} from "react";
+import React, { PropsWithChildren, useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 
 const Carousel = ({ children }: PropsWithChildren) => {
-  // Custom Cursor
+  const [isDown, setIsDown] = useState(false); // Scroll on drag: To check whether the mouse is down.
+  const [startX, setStartX] = useState(0);  // Scroll on drag: Starting position once the the mouse is clicked on the slider.
+  const [scrollLeft, setscrollLeft] = useState(0);
   const cursorRef = useRef<HTMLDivElement>(null);
   const carouselContainerRef = useRef<HTMLDivElement>(null);
+  const carouselRef = useRef<HTMLUListElement>(null);
+  const scrollbarContainerRef = useRef<HTMLDivElement>(null);
+  const scrollbarRef = useRef<HTMLDivElement>(null);
+
+  /**
+   * Scroll on drag
+   * @link Adapted from Wes Bos' solution here: https://www.youtube.com/watch?v=C9EWifQ5xqA&ab_channel=WesBos
+   */
+  function scrollMouseDownHandler(e: MouseEvent) {
+    setIsDown(true);
+    setStartX(e.pageX - carouselRef.current?.offsetLeft!);
+    setscrollLeft(carouselRef.current?.scrollLeft!);
+  }
+  function scrollMouseLeaveHandler() {
+    setIsDown(false);
+  }
+  function scrollMouseUpHandler() {
+    setIsDown(false);
+  }
+  function scrollMouseMoveHandler(e: MouseEvent) {
+    if (!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - carouselRef.current?.offsetLeft!;
+    const walk = (x - startX) * 1.5;
+    carouselRef.current!.scrollLeft = scrollLeft - walk;
+  }
+  // Custom Cursor
 
   const [cursorPosition, setCursorPosition] = useState({
     x: 0,
@@ -46,9 +69,6 @@ const Carousel = ({ children }: PropsWithChildren) => {
     }
   }
   // Custom Scrollbar
-  const carouselRef = useRef<HTMLUListElement>(null);
-  const scrollbarContainerRef = useRef<HTMLDivElement>(null);
-  const scrollbarRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const windowWidth = window.innerWidth;
@@ -85,7 +105,11 @@ const Carousel = ({ children }: PropsWithChildren) => {
       onMouseLeave={resetCursor}>
       <ul
         ref={carouselRef}
-        className="flex gap-24 overflow-x-auto bs-no-scrollbar"
+        className="flex gap-24 overflow-x-auto bs-no-scrollbar ease-linear duration-150"
+        onMouseDown={scrollMouseDownHandler}
+        onMouseUp={scrollMouseUpHandler}
+        onMouseLeave={scrollMouseLeaveHandler}
+        onMouseMove={scrollMouseMoveHandler}
         onScroll={handleScroll}>
         {children}
       </ul>
@@ -100,8 +124,11 @@ const Carousel = ({ children }: PropsWithChildren) => {
         variants={variants}
         animate={cursorVariant}
         ref={cursorRef}
-        className="bg-bs-pink absolute pointer-events-none top-1/2 right-[120px] -translate-y-[110%] z-10 inline-flex items-center justify-center w-[120px] h-[120px] rounded-full">
-        <span className="font-bold uppercase text-sm text-bs-dark">Drag</span>
+        className={`bg-bs-pink absolute pointer-events-none top-1/2 right-[120px] -translate-y-[110%] z-10 inline-flex items-center justify-center 
+        before:content-[''] before:width-0 before:height-0 before:inline-block before:absolute before:-left-[28px] before:border-b-[8px] before:border-b-bs-transparent before:border-t-[8px] before:border-t-bs-transparent before:ease-linear before:duration-150 before:border-r-[9px] before:border-r-bs-pink 
+        after:content-[''] after:width-0 after:height-0 after:inline-block after:absolute after:-right-[28px] after:border-b-[8px] after:border-b-bs-transparent  after:border-t-[8px] after:border-t-bs-transparent after:border-t-transparent after:ease-linear after:duration-150 after:border-l-[9px] after:border-l-bs-pink 
+        ease-linear duration-150 ${isDown ? 'w-[80px] h-[80px]' : 'w-[120px] h-[120px]'} ${isDown ? '' : 'before:border-opacity-0 before:ease-linear before:duration-150  before:-left-[30px] after:border-opacity-0 after:ease-linear after:duration-150  after:-right-[30px]'} rounded-full`}>
+        <span className={`font-bold uppercase text-sm text-bs-dark ease-linear duration-150 ${isDown ? 'invisible' : 'block'}`}>Drag</span>
       </motion.div>
     </div>
   );
