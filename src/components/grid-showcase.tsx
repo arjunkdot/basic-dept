@@ -3,7 +3,7 @@ import { GatsbyImage, getImage } from "gatsby-plugin-image";
 import React from "react";
 import { ImageDataLike, IGatsbyImageData } from "gatsby-plugin-image";
 
-const GridShowcase = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
+const GridShowcase = ({ data }: PageProps<Queries.GridShowcaseQuery["caseStudies"]>) => {
   return (
     <section>
       <ul className="grid grid-cols-3 gap-6 mt-20 mb-20">

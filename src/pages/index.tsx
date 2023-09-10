@@ -9,7 +9,8 @@ import HeroSlider from "../sections/index/hero-slider";
 import FeaturedEngagements from "../sections/index/featured-engagements";
 
 const IndexPage = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
- const caseStudies = data.caseStudies;
+  const caseStudies = data.caseStudies;
+  const clients = data.clients;
   return (
     <>
       <div className="bs-noise-background"></div>
@@ -26,8 +27,8 @@ const IndexPage = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
           <Awards items={awardsData} />
           <CompanyIntro />
           <GridShowcase data={caseStudies} />
-          <FeaturedEngagements />
         </div>
+        <FeaturedEngagements data={clients} />
       </main>
     </>
   );
@@ -57,6 +58,28 @@ export const ShowCaseQuery = graphql`
             }
           }
           id
+        }
+      }
+    }
+
+    clients: allMarkdownRemark(
+      sort: { frontmatter: { order: ASC } }
+      filter: { frontmatter: { type: { eq: "clients" } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            featuredImage {
+              relativePath
+            }
+            title
+            order
+            featuredImgAlt
+          }
+          id
+          internal {
+            content
+          }
         }
       }
     }
