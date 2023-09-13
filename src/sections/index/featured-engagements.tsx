@@ -8,16 +8,16 @@ const FeaturedEngagements = ({
 
   return (
     <div className="w-full">
-      <div className="bs-wrapper border-t border-bs-dark w-full">
+      <div className="bs-wrapper border-t border-bs-dark dark:border-bs-pink w-full">
         <div className="flex mt-4">
-          <span className="block w-1/3 text-bs-dark text-sm">00</span>
+          <span className="block w-1/3 text-bs-dark dark:text-bs-pink text-sm">00</span>
           <div className="w-2/3 flex justify-between">
-            <span className="text-bs-dark text-sm">/05</span>
-            <span className="text-bs-dark text-sm">●</span>
+            <span className="text-bs-dark dark:text-bs-pink text-sm">/05</span>
+            <span className="text-bs-dark dark:text-bs-pink text-sm">●</span>
           </div>
         </div>
 
-        <h2 className="text-bs-dark text-[42px] leading-[46px] uppercase font-bold block w-1/3 mt-[4.5rem] mb-32">
+        <h2 className="text-bs-dark dark:text-bs-pink text-[42px] leading-[46px] uppercase font-bold block w-1/3 mt-[4.5rem] mb-32">
           Featured Engagements
         </h2>
       </div>
@@ -42,10 +42,10 @@ const FeaturedEngagements = ({
                     className="w-auto h-full object-contain absolute left-0 top-0"
                   />
                 </div>
-                <h3 className="relative text-2xl uppercase font-bold text-bs-dark mt-4 pt-[5.5rem] before:content-[''] before:w-[1.3rem] before:h-[0.13rem] before:bg-bs-dark before:absolute before:block before:top-0 before:left-0">
+                <h3 className="relative text-2xl uppercase font-bold text-bs-dark dark:text-bs-pink mt-4 pt-[5.5rem] before:content-[''] before:w-[1.3rem] before:h-[0.13rem] before:bg-bs-dark before:absolute before:block before:top-0 before:left-0 ease-in duration-700">
                   {edge.node.frontmatter?.title}
                 </h3>
-                <p className="text-bs-dark text-lg leading-[25px] mt-5">
+                <p className="text-bs-dark dark:text-bs-pink text-lg leading-[25px] mt-5 ease-in duration-700">
                   {edge.node.internal.content}
                 </p>
               </li>

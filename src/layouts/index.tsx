@@ -4,7 +4,7 @@ import type { PageProps } from "gatsby";
 
 const Layout: React.FC<PageProps> = ({ children }) => {
   return (
-    <div>
+    <div id="scroll-container" data-scroll-container>
       <Header />
       {children}
     </div>
