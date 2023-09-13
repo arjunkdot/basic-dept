@@ -115,10 +115,10 @@ const Carousel = ({ children }: PropsWithChildren) => {
       </ul>
       <div
         ref={scrollbarContainerRef}
-        className="bs-wrapper mt-28 relative w-full before:content-[''] before:bg-bs-dark before:w-full before:opacity-[0.25] left-0 before:block before:h-[2px]">
+        className="bs-wrapper mt-28 relative w-full before:content-[''] before:bg-bs-dark dark:before:bg-bs-pink before:w-full before:opacity-[0.25] left-0 before:block before:h-[2px] ease-in duration-700">
         <div
           ref={scrollbarRef}
-          className="h-[2px] bg-bs-dark absolute top-0"></div>
+          className="h-[2px] bg-bs-dark dark:bg-bs-pink absolute top-0 ease-in duration-700"></div>
       </div>
       <motion.div
         variants={variants}

@@ -29,6 +29,28 @@ const IndexPage = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
     requestAnimationFrame(raf);
   }, []);
 
+  // Toggle dark mode on/off based on scroll positions
+  React.useEffect(() => {
+    function toggleDarkMode() {
+      const htmlEl = document.querySelector("html");
+      const startEl = document.getElementById("dark-mode-trigger");
+
+      console.log(startEl?.getBoundingClientRect().top);
+      if (
+        startEl?.getBoundingClientRect().top! < 280 &&
+        startEl?.getBoundingClientRect().top! >= -500
+      ) {
+        htmlEl?.classList.add("dark");
+      } else {
+        htmlEl?.classList.remove("dark");
+      }
+    }
+
+    window.addEventListener("scroll", toggleDarkMode);
+
+    return () => window.removeEventListener("scroll", toggleDarkMode);
+  }, []);
+
   return (
     <div>
       <div className="bs-noise-background"></div>
@@ -47,7 +69,7 @@ const IndexPage = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
           <GridShowcase data={caseStudies} />
         </div>
         <FeaturedEngagements data={clients} />
-        <div className="bs-wrapper">
+        <div id="dark-mode-trigger" className="bs-wrapper">
           <Spotlight />
           <FeaturedNews />
         </div>
