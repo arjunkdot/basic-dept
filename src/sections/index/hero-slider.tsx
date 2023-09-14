@@ -46,7 +46,7 @@ const HeroSlider = () => {
         className="bs-cursor-container z-20 absolute w-full h-[calc(100vh_-_126px)] left-0 top-[126px]">
         <motion.div
           ref={cursorRef}
-          className="relative z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-2/3 uppercase  inline-flex flex-col items-center justify-center font-bold text-sm"
+          className="relative z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-2/3 uppercase  inline-flex flex-col items-center justify-center font-extrabold text-sm"
           variants={variants}
           animate={cursorVariant}>
           <span className=" bg-bs-white w-[120px] h-[120px] rounded-full flex justify-center items-center px-5 text-center">
