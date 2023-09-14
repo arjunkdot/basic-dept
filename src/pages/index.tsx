@@ -14,6 +14,7 @@ import FeaturedNews from "../sections/index/featured-news";
 const IndexPage = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
   const caseStudies = data.caseStudies;
   const clients = data.clients;
+  const blogs = data.blogs;
 
   React.useEffect(() => {
     // For smooth scrolling
@@ -35,10 +36,9 @@ const IndexPage = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
       const htmlEl = document.querySelector("html");
       const startEl = document.getElementById("dark-mode-trigger");
 
-      console.log(startEl?.getBoundingClientRect().top);
       if (
         startEl?.getBoundingClientRect().top! < 280 &&
-        startEl?.getBoundingClientRect().top! >= -500
+        startEl?.getBoundingClientRect().top! >= -700
       ) {
         htmlEl?.classList.add("dark");
       } else {
@@ -71,7 +71,7 @@ const IndexPage = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
         <FeaturedEngagements data={clients} />
         <div id="dark-mode-trigger" className="bs-wrapper">
           <Spotlight />
-          <FeaturedNews />
+          <FeaturedNews data={blogs} />
         </div>
       </main>
     </div>
@@ -123,6 +123,28 @@ export const ShowCaseQuery = graphql`
           id
           internal {
             content
+          }
+        }
+      }
+    }
+    blogs: allMarkdownRemark(
+      sort: { frontmatter: { order: ASC } }
+      filter: { frontmatter: { type: { eq: "blog" } } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            id
+            title
+            order
+            date
+            category
+            featuredImageAlt
+            featuredImage {
+              childImageSharp {
+                gatsbyImageData(width: 720, placeholder: DOMINANT_COLOR)
+              }
+            }
           }
         }
       }

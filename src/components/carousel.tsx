@@ -128,7 +128,7 @@ const Carousel = ({ children }: PropsWithChildren) => {
         before:content-[''] before:width-0 before:height-0 before:inline-block before:absolute before:-left-[28px] before:border-b-[8px] before:border-b-bs-transparent before:border-t-[8px] before:border-t-bs-transparent before:ease-linear before:duration-150 before:border-r-[9px] before:border-r-bs-pink 
         after:content-[''] after:width-0 after:height-0 after:inline-block after:absolute after:-right-[28px] after:border-b-[8px] after:border-b-bs-transparent  after:border-t-[8px] after:border-t-bs-transparent after:border-t-transparent after:ease-linear after:duration-150 after:border-l-[9px] after:border-l-bs-pink 
         ease-linear duration-150 ${isDown ? 'w-[80px] h-[80px]' : 'w-[120px] h-[120px]'} ${isDown ? '' : 'before:border-opacity-0 before:ease-linear before:duration-150  before:-left-[30px] after:border-opacity-0 after:ease-linear after:duration-150  after:-right-[30px]'} rounded-full`}>
-        <span className={`font-bold uppercase text-sm text-bs-dark ease-linear duration-150 ${isDown ? 'invisible' : 'block'}`}>Drag</span>
+        <span className={`font-extrabold uppercase text-sm text-bs-dark ease-linear duration-150 ${isDown ? 'invisible' : 'block'}`}>Drag</span>
       </motion.div>
     </div>
   );

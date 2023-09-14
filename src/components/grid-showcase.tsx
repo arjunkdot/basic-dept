@@ -45,10 +45,10 @@ const GridShowcase = ({ data }: PageProps<Queries.GridShowcaseQuery["caseStudies
                     </>
                   )}
                 </div>
-                <h2 className="uppercase text-[22px] font-semibold mt-5 text-bs-dark dark:text-bs-pink group-hover:underline">
+                <h2 className="uppercase text-[22px] font-extrabold mt-5 text-bs-dark dark:text-bs-pink group-hover:underline">
                   {edge.node?.frontmatter?.title}
                 </h2>
-                <p className="text-bs-dark  dark:text-bs-pink uppercase tracking-wide text-sm font-medium mt-2 max-w-[210px]">
+                <p className="text-bs-dark  dark:text-bs-pink uppercase tracking-wide leading-[1.15rem] antialiased font-bold text-sm mt-2 max-w-[215px]">
                   {edge.node?.frontmatter?.excerpt}
                 </p>
               </Link>

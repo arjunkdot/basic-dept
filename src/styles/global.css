@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  font-family: "Inter", sans-serif;
+  font-family: "ScotoGroteskA", sans-serif;
 }
 ::-moz-selection  {
   /* Code for Firefox */
@@ -36,20 +36,28 @@ body {
   transition: all 0.7s ease;
 }
 @font-face {
-  font-family: "Inter";
+  font-family: "ScotoGroteskA";
   font-weight: 400;
   font-display: swap;
   font-style: normal;
   font-named-instance: "Regular";
-  src: url(/fonts/Inter-Regular.woff2) format("woff2");
+  src: url(/fonts/SctoGroteskA-Regular.woff2) format("woff2");
 }
 @font-face {
-  font-family: "Inter";
-  font-weight: 600;
+  font-family: "ScotoGroteskA";
+  font-weight: 700;
   font-display: swap;
   font-style: bold;
   font-named-instance: "Bold";
-  src: url(/fonts/Inter-SemiBold.woff2) format("woff2");
+  src: url(/fonts/SctoGroteskA-Medium.woff2) format("woff2");
+}
+@font-face {
+  font-family: "ScotoGroteskA";
+  font-weight: 800;
+  font-display: swap;
+  font-style: bolder;
+  font-named-instance: "Bolder";
+  src: url(/fonts/SctoGroteskA-Bold.woff2) format("woff2");
 }
 
 .bs-cursor-container {

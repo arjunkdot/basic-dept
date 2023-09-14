@@ -17,7 +17,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        inter: ["Inter", "sans-serif"],
+        scoto: ["ScotoGroteskA", "sans-serif"],
       },
       transitionTimingFunction: {
         'default': 'cubic-bezier(.61,.38,.33,.95)'
@@ -26,7 +26,16 @@ module.exports = {
         lineProgressLinear: {
           '0%, 100%': { transform: 'rotate(-3deg)' },
           '50%': { transform: 'rotate(3deg)' },
+        },
+        arrowLinear: {
+          '0%': { transform: 'translateX(0)' },
+          '50%': { transform: 'translateX(100%)' },
+          '51%': { transform: 'translateX(-100%)' },
+          '100%': { transform: 'translateX(0%)' },
         }
+      },
+      animation: {
+        'arrow-lead': 'arrowLinear 0.5s ease-in-out forwards'
       }
     },
   },
