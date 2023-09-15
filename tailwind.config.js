@@ -11,6 +11,8 @@ module.exports = {
     colors: {
       'bs-pink' :'#f9cdcd',
       'bs-dark' : '#252422',
+      'bs-extradark' : '#191918',
+      'bs-grey' : '#5e5e5e',
       'bs-light' : '#f4f4f4',
       'bs-white': '#ffffff',
       'bs-transparent': 'transparent'

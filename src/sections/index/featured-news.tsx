@@ -10,7 +10,7 @@ const FeaturedNews = ({
   data,
 }: PageProps<Queries.GridShowcaseQuery["blogs"]>) => {
   return (
-    <section className="mt-40">
+    <section className="mt-40 mb-36">
       <h2 className="text-bs-dark dark:text-bs-pink text-[42px] leading-[46px] uppercase font-extrabold block w-1/3 mt-[4.5rem] mb-16">
         Featured
         <br /> News
