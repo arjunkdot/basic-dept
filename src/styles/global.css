@@ -4,6 +4,10 @@
 
 :root {
   font-family: "ScotoGroteskA", sans-serif;
+
+ 
+    font-size: 1.07vw;
+  
 }
 ::-moz-selection  {
   /* Code for Firefox */
