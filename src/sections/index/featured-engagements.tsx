@@ -26,7 +26,7 @@ const FeaturedEngagements = ({
           {data.edges.map((edge) => {
             return (
               <li
-                className="w-[23.5%] shrink-0 first:ml-[5%] last:mr-[5%]"
+                className="w-[23.5%] shrink-0 mr-24 first:ml-[5%] last:mr-[5%]"
                 key={edge.node?.id}>
                 <div className="relative h-10 inline-block overflow-hidden">
                   <svg

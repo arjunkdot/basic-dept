@@ -130,3 +130,6 @@ body {
 .bs-noise-background::after {
   opacity: 0.1;
 }
+.bs-animate-reverse{
+  animation-direction: reverse;
+}
