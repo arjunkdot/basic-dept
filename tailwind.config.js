@@ -51,7 +51,7 @@ module.exports = {
       animation: {
         'arrow-lead': 'arrowLinear 0.5s ease-in-out forwards',
         'menu-overlay-reveal': 'menuOverlaySlide 0.5s cubic-bezier(.35,.67,.84,.61) 0.5s forwards',
-        'menu-slide-in': 'menuSlideIn 0.4s cubic-bezier(.35,.67,.92,.92) 0.4s forwards',
+        'menu-slide-in': 'menuSlideIn 0.8s ease 0.4s forwards',
         'menu-fadein': 'fadeIn 0.5s ease-in-out forwards',
         'menu-footer-fadein': 'fadeIn 0.5s ease-in-out 1.2s forwards'
       }

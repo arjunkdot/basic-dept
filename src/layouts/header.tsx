@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState, useEffect, useRef } from "react";
+import Lenis from "@studio-freight/lenis";
 import { Link } from "gatsby";
 import HeaderMenu from "./header-menu";
 const headerNavItems = [
@@ -34,9 +35,48 @@ const headerNavItems = [
   },
 ];
 const Header = () => {
+  const [isMenuVisible, setIsMenuVisible] = useState(false);
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  const showMenu = () => {
+    setIsMenuVisible(true);
+  };
+
+  useEffect(() => {
+    // For smooth scrolling
+    const lenis = new Lenis({
+      duration: 3,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // To hide / show navigation on scroll
+    let downThreshould = -100;
+    let mover = 0;
+    const handleScroll = () => {
+      let direction = lenis.direction;
+      if (direction === 1) {
+        // Down
+        if (mover <= downThreshould) return;
+        headerRef.current!.style.transform = `translateY(${--mover}px)`;
+      } else if (direction === -1) {
+        // Up
+        if (mover > 0) return;
+        headerRef.current!.style.transform = `translateY(${++mover}px)`;
+      }
+    };
+
+    lenis.on("scroll", () => handleScroll());
+  }, []);
+
   return (
     <>
-      <header className="relative z-10">
+      <header ref={headerRef} className="left-0 z-10 fixed w-full">
         <div className="bs-wrapper fixed flex justify-between items-center  w-full h-[126px]  top-0 left-1/2 translate-x-[-50%]">
           <Link to="/">
             <figure className="w-40 h-auto">
@@ -60,12 +100,14 @@ const Header = () => {
               ))}
             </ul>
           </nav>
-          <button className="group w-10 h-10 rounded-full cursor-pointer">
+          <button
+            className="group w-10 h-10 rounded-full cursor-pointer"
+            onClick={showMenu}>
             <span className="w-[6px] h-[6px] relative inline-block bg-bs-light dark:bg-bs-pink rounded-full ease-default after:content-[''] after:inline-block after:absolute after:bg-bs-light dark:after:bg-bs-pink after:w-[6px] after:h-[6px] after:rounded-full after:left-[9px] after:ease-default after:duration-150 before:content-[''] before:inline-block before:absolute before:bg-bs-light dark:before:bg-bs-pink before:w-[6px] before:h-[6px] before:rounded-full before:right-[9px] before:ease-default before:duration-150 group-hover:after:left-[10px] group-hover:before:right-[10px] group-hover:before:ease-default group-hover:before:duration-150 group-hover:after:ease-default group-hover:after:duration-150"></span>
           </button>
         </div>
       </header>
-      <HeaderMenu />
+      {isMenuVisible && <HeaderMenu setIsMenuVisible={setIsMenuVisible} />}
     </>
   );
 };

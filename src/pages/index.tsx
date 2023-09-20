@@ -7,7 +7,7 @@ import CompanyIntro from "../sections/index/company-intro";
 import GridShowcase from "../components/grid-showcase";
 import HeroSlider from "../sections/index/hero-slider";
 import FeaturedEngagements from "../sections/index/featured-engagements";
-import Lenis from "@studio-freight/lenis";
+
 import Spotlight from "../sections/index/spotlight";
 import FeaturedNews from "../sections/index/featured-news";
 
@@ -16,19 +16,7 @@ const IndexPage = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
   const clients = data.clients;
   const blogs = data.blogs;
 
-  React.useEffect(() => {
-    // For smooth scrolling
-    const lenis = new Lenis({
-      duration: 3,
-    });
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
-    }
-
-    requestAnimationFrame(raf);
-  }, []);
 
   // Toggle dark mode on/off based on scroll positions
   React.useEffect(() => {

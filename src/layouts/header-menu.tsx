@@ -8,7 +8,10 @@ import {
   getImage,
 } from "gatsby-plugin-image";
 
-const HeaderMenu = () => {
+interface HeaderMenuProps {
+  setIsMenuVisible: React.Dispatch<React.SetStateAction<boolean>>,
+}
+const HeaderMenu = (props : HeaderMenuProps) => {
   const data = useStaticQuery(graphql`
     query InitiativeQuery {
       allMarkdownRemark(
@@ -39,6 +42,10 @@ const HeaderMenu = () => {
       }
     }
   `);
+
+  const hideMenu = () => {
+    props.setIsMenuVisible(false);
+  };
   return (
     <div className="bg-bs-dark fixed w-full h-full left-0 top-0 z-50 animate-menu-fadein">
       <div className="animate-menu-reveal w-full h-full before:bg-bs-dark before:z-50 before:block before:left-0 before:top-0 before:fixed before:w-full before:h-full before:animate-menu-overlay-reveal">
@@ -52,7 +59,9 @@ const HeaderMenu = () => {
             A collection of internal project and initiatives under the
             BASIC/DEPT® brand.
           </p>
-          <button className="absolute right-0 top-[3.25rem] w-10 h-10 flex items-center justify-center border border-bs-light rounded-full">
+          <button
+            onClick={hideMenu}
+            className="absolute right-0 top-[3.25rem] w-10 h-10 flex items-center justify-center border border-bs-light rounded-full">
             <figure>
               <svg
                 className="fill-bs-light w-4 h-4"
@@ -64,7 +73,7 @@ const HeaderMenu = () => {
             </figure>
           </button>
         </div>
-        <div className="animate-menu-slide-in ">
+        <div className="animate-menu-slide-in translate-x-[20%] ease-default duration-300">
           <Carousel>
             {data.allMarkdownRemark.edges.map((edge) => {
               return (
