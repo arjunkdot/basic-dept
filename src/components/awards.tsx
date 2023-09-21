@@ -12,7 +12,7 @@ interface AwardsProps {
 }
 const Awards = ({ items }: AwardsProps) => {
   return (
-    <section className="py-[15vw] border-bs-dark border-b">
+    <section className="py-[15vw] border-bs-dark border-b ">
       <ul className="flex items-center justify-around">
         {items.map((item) => (
           <li key={item.id}>

@@ -7,7 +7,7 @@ const FeaturedEngagements = ({
 }: PageProps<Queries.GridShowcaseQuery["clients"]>) => {
 
   return (
-    <div className="w-full">
+    <div className="w-full ">
       <div className="bs-wrapper border-t border-bs-dark dark:border-bs-pink w-full">
         <div className="flex mt-4">
           <span className="block w-1/3 text-bs-dark dark:text-bs-pink text-sm">00</span>
@@ -26,7 +26,7 @@ const FeaturedEngagements = ({
           {data.edges.map((edge) => {
             return (
               <li
-                className="w-[23.5%] shrink-0 first:ml-[5%] last:mr-[5%]"
+                className="w-[23.5%] shrink-0 mr-24 first:ml-[5%] last:mr-[5%]"
                 key={edge.node?.id}>
                 <div className="relative h-10 inline-block overflow-hidden">
                   <svg
