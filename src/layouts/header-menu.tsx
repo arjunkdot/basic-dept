@@ -47,7 +47,7 @@ const HeaderMenu = (props : HeaderMenuProps) => {
     props.setIsMenuVisible(false);
   };
   return (
-    <div className="bg-bs-dark fixed w-full h-full left-0 top-0 z-50 animate-menu-fadein">
+    <div className="bg-bs-dark fixed w-full h-full left-0 top-0 animate-menu-fadein z-50">
       <div className="animate-menu-reveal w-full h-full before:bg-bs-dark before:z-50 before:block before:left-0 before:top-0 before:fixed before:w-full before:h-full before:animate-menu-overlay-reveal">
         <div className="bs-wrapper relative flex h-[16vh] font-scoto text-bs-pink text-[0.9rem] leading-4 py-[3.5rem]">
           <p className='relative pl-14 w-[17vw] before:content-["●"] before:inline-block before:absolute before:-left-0'>

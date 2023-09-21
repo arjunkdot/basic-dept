@@ -133,7 +133,7 @@ const Carousel = (props: PropsWithChildren) => {
           isDown
             ? ""
             : "before:border-opacity-0 before:ease-linear before:duration-150  before:-left-[30px] after:border-opacity-0 after:ease-linear after:duration-150  after:-right-[30px]"
-        } rounded-full`}>
+        } rounded-full `}>
         <span
           className={`font-extrabold uppercase text-sm text-bs-dark ease-linear duration-150 ${
             isDown ? "invisible" : "block"

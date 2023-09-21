@@ -41,7 +41,7 @@ const IndexPage = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
 
   return (
     <div>
-      <div className="bs-noise-background"></div>
+    
       <Helmet>
         <title>
           BASIC/DEPT® | Digital Branding &amp; Product Design Agency

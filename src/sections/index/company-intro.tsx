@@ -2,7 +2,7 @@ import React from "react";
 import LinkButton from "../../components/link-button";
 const CompanyIntro = () => {
   return (
-    <section className="flex gap-x-10 items-start pt-24" >
+    <section className="flex gap-x-10 items-start pt-24 " >
       <div className="w-1/2 pr-[3.8rem]">
         <p className="text-[2.35rem] leading-[2.6rem] font-scoto font-bold antialiased tracking-tight	 text-bs-dark dark:text-bs-pink mb-10">
           BASIC/DEPT&reg; is a global branding and digital design agency
