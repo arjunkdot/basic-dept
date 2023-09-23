@@ -16,8 +16,6 @@ const IndexPage = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
   const clients = data.clients;
   const blogs = data.blogs;
 
-
-
   // Toggle dark mode on/off based on scroll positions
   React.useEffect(() => {
     function toggleDarkMode() {
@@ -41,7 +39,6 @@ const IndexPage = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
 
   return (
     <div>
-    
       <Helmet>
         <title>
           BASIC/DEPT® | Digital Branding &amp; Product Design Agency
@@ -54,8 +51,8 @@ const IndexPage = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
         <div className="bs-wrapper">
           <Awards items={awardsData} />
           <CompanyIntro />
-          <GridShowcase data={caseStudies} />
         </div>
+        <GridShowcase data={caseStudies} />
         <FeaturedEngagements data={clients} />
         <div id="dark-mode-trigger" className="bs-wrapper">
           <Spotlight />

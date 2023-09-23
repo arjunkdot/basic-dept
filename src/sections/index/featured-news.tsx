@@ -10,10 +10,9 @@ const FeaturedNews = ({
   data,
 }: PageProps<Queries.GridShowcaseQuery["blogs"]>) => {
   return (
-    <section className="mt-40 mb-36">
-      <h2 className="text-bs-dark dark:text-bs-pink text-[2.625rem] leading-[2.875rem] uppercase font-extrabold block w-1/3 mt-[4.5rem] mb-16">
-        Featured
-        <br /> News
+    <section className="xl:mt-12 mt-40 mb-36">
+      <h2 className="text-bs-dark dark:text-bs-pink sm:text-[2.625rem] xl:text-2xl text-[2.625rem] sm:leading-10 leading-[2.875rem] uppercase font-extrabold antialiased block sm:w-1/3 xl:w-full w-[250px] mt-[4.5rem] xl:mb-10 mb-16">
+        Featured News
       </h2>
       <ul>
         {data.edges.map((edge) => {
@@ -41,7 +40,7 @@ const FeaturedNews = ({
                   </figure>
                 </div>
                 <div className="w-2/3 pl-5 relative">
-                  <h3 className="text-bs-dark dark:text-bs-pink uppercase font-scoto font-bold antialased text-[2.6rem] leading-[2.85rem] max-w-[80%] group-hover:underline">
+                  <h3 className="text-bs-dark dark:text-bs-pink uppercase font-scoto xl:font-normal font-bold antialased xl:text-[1.4rem] text-[2.6rem] xl:leading-tight leading-[2.85rem] max-w-[80%] group-hover:underline">
                     {edge.node.frontmatter?.title}
                   </h3>
 
@@ -56,7 +55,7 @@ const FeaturedNews = ({
                     </svg>
                   </figure>
 
-                  <span className="absolute left-5 bottom-0 text-bs-dark dark:text-bs-pink uppercase text-sm leading-4">
+                  <span className="absolute left-5 bottom-0 text-bs-dark dark:text-bs-pink uppercase xl:text-[0.7rem] text-sm leading-4">
                     <strong className="mr-1">{edge.node.frontmatter?.category}</strong>{edge.node.frontmatter?.date}
                   </span>
                 </div>

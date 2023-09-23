@@ -90,7 +90,9 @@ const Header = () => {
       <header
         ref={headerRef}
         className={`left-0 -top-1  z-10 fixed w-full ${
-          isScrollPassed ? "bg-bs-light dark:bg-bs-dark bs-header-noise-background w-full h-[8.5rem]" : ""
+          isScrollPassed
+            ? "bg-bs-light dark:bg-bs-dark bs-header-noise-background w-full h-[8.5rem]"
+            : ""
         }`}>
         <div
           className={`bs-wrapper fixed flex justify-between items-center  w-full h-[8.5rem]  top-0 left-1/2 translate-x-[-50%]`}>
@@ -107,12 +109,12 @@ const Header = () => {
               </svg>
             </figure>
           </Link>
-          <nav className="w-[48%] max-w-[40vw] mr-[9rem]">
+          <nav className="w-[48%] max-w-[40vw] mr-[9rem] xl:hidden">
             <ul className="flex justify-between uppercase text-sm text-bs-light dark:text-bs-pink">
               {headerNavItems.map((item) => (
                 <li
                   key={item.id}
-                  className={`relative after:content-[''] text-[0.9vw] after:absolute after:w-[0%] after:h-[1px] after:right-0 after:bottom-[2px]   ${
+                  className={`relative after:content-[''] text-[0.875rem] after:absolute after:w-[0%] after:h-[1px] after:right-0 after:bottom-[2px]   ${
                     isScrollPassed
                       ? "after:bg-bs-dark  dark:after:bg-bs-pink"
                       : "after:bg-bs-light dark:after:bg-bs-pink"
@@ -131,7 +133,7 @@ const Header = () => {
             </ul>
           </nav>
           <button
-            className="group w-10 h-10 rounded-full cursor-pointer"
+            className="group w-10 h-10 rounded-full cursor-pointer xl:hidden"
             onClick={showMenu}>
             <span
               className={`w-[0.4vw] h-[0.4vw] relative inline-block ${
@@ -148,6 +150,14 @@ const Header = () => {
                   : "before:bg-bs-light before:dark:bg-bs-pink"
               } before:w-[0.4vw] before:h-[0.4vw] before:rounded-full before:right-[0.6vw] before:ease-default before:duration-150 group-hover:after:left-[0.65vw] group-hover:before:right-[0.65vw] group-hover:before:ease-default group-hover:before:duration-150 group-hover:after:ease-default group-hover:after:duration-150`}></span>
           </button>
+          <button
+            className={`relative after:content-[''] text-bs-light text-[0.875rem] uppercase after:absolute after:w-[0%] after:h-[1px] after:right-0 after:bottom-[2px]   ${
+              isScrollPassed
+                ? "after:bg-bs-dark text-bs-light  dark:after:bg-bs-pink dark:text-bs-pink"
+                : "after:bg-bs-light dark:after:bg-bs-pink"
+            } after:ease-default after:duration-300 hover:after:w-[100%] hover:after:left-0 hover:after:ease-default hover:after:duration-300 hidden xl:block`}>
+              Menu
+            </button>
         </div>
       </header>
       {isMenuVisible && <HeaderMenu setIsMenuVisible={setIsMenuVisible} />}

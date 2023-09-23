@@ -4,8 +4,12 @@
 
 :root {
   font-family: "ScotoGroteskA", sans-serif;
-
   font-size: 1.07vw;
+}
+@media screen and (max-width: 1279.98px) {
+  :root {
+    font-size: 2.25vw;
+  }
 }
 ::-moz-selection {
   /* Code for Firefox */
@@ -64,6 +68,11 @@ body {
 
 .bs-cursor-container {
   cursor: none;
+}
+@media screen and (max-width: 1279.98px) {
+  .bs-cursor-container {
+    cursor: pointer !important;
+  }
 }
 .bs-wrapper {
   max-width: 90%;
@@ -137,7 +146,7 @@ body {
 .bs-animate-reverse {
   animation-direction: reverse;
 }
-.bs-header-noise-background{
+.bs-header-noise-background {
   overflow: hidden;
 }
 .bs-header-noise-background::after {
@@ -153,6 +162,6 @@ body {
   animation: animate-noise 1.75s steps(6) infinite;
   opacity: 0.6;
 }
-.dark .bs-header-noise-background::after{
+.dark .bs-header-noise-background::after {
   opacity: 0.1;
 }
