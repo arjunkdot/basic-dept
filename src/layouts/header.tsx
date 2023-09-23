@@ -97,7 +97,7 @@ const Header = () => {
         <div
           className={`bs-wrapper fixed flex justify-between items-center  w-full h-[8.5rem]  top-0 left-1/2 translate-x-[-50%]`}>
           <Link to="/">
-            <figure className="w-40 h-auto">
+            <figure className="sm:w-60 w-40 h-auto">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 208.3 27.7"
@@ -151,7 +151,7 @@ const Header = () => {
               } before:w-[0.4vw] before:h-[0.4vw] before:rounded-full before:right-[0.6vw] before:ease-default before:duration-150 group-hover:after:left-[0.65vw] group-hover:before:right-[0.65vw] group-hover:before:ease-default group-hover:before:duration-150 group-hover:after:ease-default group-hover:after:duration-150`}></span>
           </button>
           <button
-            className={`relative after:content-[''] text-bs-light text-[0.875rem] uppercase after:absolute after:w-[0%] after:h-[1px] after:right-0 after:bottom-[2px]   ${
+            className={`relative after:content-[''] text-bs-light sm:text-[1.75rem] text-[0.875rem] uppercase after:absolute after:w-[0%] after:h-[1px] after:right-0 after:bottom-[2px]   ${
               isScrollPassed
                 ? "after:bg-bs-dark text-bs-light  dark:after:bg-bs-pink dark:text-bs-pink"
                 : "after:bg-bs-light dark:after:bg-bs-pink"
