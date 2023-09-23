@@ -15,7 +15,7 @@ const Spotlight = () => {
         <LinkButton path="/" text="About us" />
       </div>
       <div className="w-1/2 pt-20">
-        <video loop autoPlay muted>
+        <video loop autoPlay muted className="w-full h-auto">
             <source  src="./videos/culture-loop.mp4" type="video/mp4"></source>
         </video>
       </div>

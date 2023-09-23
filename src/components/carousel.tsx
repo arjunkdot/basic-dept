@@ -115,20 +115,20 @@ const Carousel = (props: PropsWithChildren) => {
       </ul>
       <div
         ref={scrollbarContainerRef}
-        className="bs-wrapper mt-28 relative w-full before:content-[''] before:bg-bs-dark dark:before:bg-bs-pink before:w-full before:opacity-[0.25] left-0 before:block before:h-[2px] ease-in duration-700">
+        className="bs-wrapper mt-28 relative w-full before:content-[''] before:bg-bs-dark dark:before:bg-bs-pink before:w-full before:opacity-[0.25] left-0 before:block before:h-[0.1vw] ease-in duration-700">
         <div
           ref={scrollbarRef}
-          className="h-[2px] bg-bs-dark dark:bg-bs-pink absolute top-0 ease-in duration-700"></div>
+          className="h-[0.1vw] bg-bs-dark dark:bg-bs-pink absolute top-0 ease-in duration-700"></div>
       </div>
       <motion.div
         variants={variants}
         animate={cursorVariant}
         ref={cursorRef}
         className={`bg-bs-pink absolute pointer-events-none top-1/2 right-[2.25vw] -translate-y-[110%] z-10 inline-flex items-center justify-center 
-        before:content-[''] before:width-0 before:height-0 before:inline-block before:absolute before:-left-[28px] before:border-b-[8px] before:border-b-bs-transparent before:border-t-[8px] before:border-t-bs-transparent before:ease-linear before:duration-150 before:border-r-[9px] before:border-r-bs-pink 
-        after:content-[''] after:width-0 after:height-0 after:inline-block after:absolute after:-right-[28px] after:border-b-[8px] after:border-b-bs-transparent  after:border-t-[8px] after:border-t-bs-transparent after:border-t-transparent after:ease-linear after:duration-150 after:border-l-[9px] after:border-l-bs-pink 
+        before:content-[''] before:width-0 before:height-0 before:inline-block before:absolute before:-left-[1.5vw] before:border-b-[0.5vw] before:border-b-bs-transparent before:border-t-[0.5vw] before:border-t-bs-transparent before:ease-linear before:duration-150 before:border-r-[0.55vw] before:border-r-bs-pink 
+        after:content-[''] after:width-0 after:height-0 after:inline-block after:absolute after:-right-[1.5vw] after:border-b-[0.5vw] after:border-b-bs-transparent  after:border-t-[0.5vw] after:border-t-bs-transparent after:border-t-transparent after:ease-linear after:duration-150 after:border-l-[0.55vw] after:border-l-bs-pink 
         ease-linear duration-150 ${
-          isDown ? "w-[80px] h-[80px]" : "w-[8.25vw] h-[8.25vw]"
+          isDown ? "w-[5vw] h-[5vw]" : "w-[8.25vw] h-[8.25vw]"
         } ${
           isDown
             ? ""

@@ -17,7 +17,7 @@ const FeaturedEngagements = ({
           </div>
         </div>
 
-        <h2 className="text-bs-dark dark:text-bs-pink text-[42px] leading-[46px] uppercase font-extrabold block w-1/3 mt-[4.5rem] mb-32">
+        <h2 className="text-bs-dark dark:text-bs-pink text-[2.625rem] leading-[2.875rem] uppercase font-extrabold block w-1/3 mt-[4.5rem] mb-32">
           Featured Engagements
         </h2>
       </div>
@@ -45,7 +45,7 @@ const FeaturedEngagements = ({
                 <h3 className="relative text-2xl uppercase font-scoto font-extrabold text-bs-dark dark:text-bs-pink mt-4 pt-[5.5rem] before:content-[''] before:w-[1.3rem] before:h-[0.13rem] before:bg-bs-dark before:absolute before:block before:top-0 before:left-0 ease-in duration-700">
                   {edge.node.frontmatter?.title}
                 </h3>
-                <p className="text-bs-dark dark:text-bs-pink text-lg leading-[25px] font-bold antialiased mt-5 ease-in duration-700">
+                <p className="text-bs-dark dark:text-bs-pink text-lg leading-[1.563] font-bold antialiased mt-5 ease-in duration-700">
                   {edge.node.internal.content}
                 </p>
               </li>
