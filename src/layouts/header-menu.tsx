@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
+import Lenis from "@studio-freight/lenis";
 import Carousel from "../components/carousel";
 import {
   ImageDataLike,
@@ -151,10 +152,55 @@ interface ResponsiveHeaderMenuProps {
   menuItems: { id: number; label: string; path: string }[];
 }
 export const ResponsiveHeaderMenu = (props: ResponsiveHeaderMenuProps) => {
+  const data = useStaticQuery(graphql`
+    query InitiativeQuery {
+      allMarkdownRemark(
+        sort: { frontmatter: { order: ASC } }
+        filter: { frontmatter: { type: { eq: "initiative" } } }
+      ) {
+        edges {
+          node {
+            frontmatter {
+              title
+              year
+              order
+              subtext
+              link
+              linkText
+              featuredImageAlt
+              featuredImage {
+                childImageSharp {
+                  gatsbyImageData(width: 720, placeholder: DOMINANT_COLOR)
+                }
+              }
+            }
+            internal {
+              content
+            }
+          }
+        }
+      }
+    }
+  `);
+
   const hideRespMenu = () => {
     props.setIsMenuVisible(false);
   };
- 
+
+  useEffect(() => {
+    const lenis = new Lenis({
+      wrapper: document.querySelector(".bs-resp-menu-items") as HTMLElement,
+      duration: 2,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+  }, []);
+
   return (
     <div className="bg-bs-dark fixed top-0 left-0 w-full h-full z-30">
       <div className="bs-wrapper">
@@ -186,7 +232,7 @@ export const ResponsiveHeaderMenu = (props: ResponsiveHeaderMenuProps) => {
           </button>
         </div>
 
-        <ul className="text-bs-pink xl:h-[calc(100vh_-_9rem)] sm:text-[2rem] text-2xl font-extrabold antialiased uppercase sm:pt-28 pt-10">
+        {/* <ul className="text-bs-pink xl:h-[calc(100vh_-_9rem)] sm:text-[2rem] text-2xl font-extrabold antialiased uppercase sm:pt-28 pt-10">
           {props.menuItems.map((item) => (
             <li key={item.id} className="sm:mb-[2.5rem] mb-4">
               <Link to={item.path}>{item.label}</Link>
@@ -195,21 +241,110 @@ export const ResponsiveHeaderMenu = (props: ResponsiveHeaderMenuProps) => {
           <li>
             Initiatives{" "}
             <figure className="relative fill-bs-pink inline-block -top-[.2rem] left-[.1rem] -rotate-90 w-[.875rem] h-[.625rem]">
-              <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.1 8.5">
+              <svg
+                className="w-full h-full"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 14.1 8.5">
                 <path d="m14.1 1.4-7 7.1-1.4-1.4 7-7.1 1.4 1.4z"></path>
                 <path d="m1.4 0 7.1 7.1-1.4 1.4L0 1.4 1.4 0z"></path>
               </svg>
             </figure>
           </li>
-        </ul>
+        </ul> */}
+      </div>
 
-        <div className="flex items-center h-5 justify-between">
-          <span className="text-bs-grey sm:text-[1.25rem] text-[.65rem] uppercase">
-            Basic/Dept&reg;, Inc
-          </span>
-          <span className="text-bs-grey sm:text-[1.25rem] text-[.65rem] uppercase">
-            10 - 23&copy;
-          </span>
+      <div className="bs-resp-menu-items xl:h-full overflow-y-auto pt-4">
+        <div className="bs-wrapper">
+          <div className="flex items-start pb-5">
+            <button
+              className="relative bg-bs-transparent w-[3rem] h-[3rem]"
+              aria-label="Go back">
+              <figure className="absolute -top-2 left-0 w-[.875rem] h-[.625rem] fill-bs-pink rotate-90">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.1 8.5">
+                  <path d="m14.1 1.4-7 7.1-1.4-1.4 7-7.1 1.4 1.4z"></path>
+                  <path d="m1.4 0 7.1 7.1-1.4 1.4L0 1.4 1.4 0z"></path>
+                </svg>
+              </figure>
+            </button>
+            <div className="relative before:content-['●'] before:block before:text-[.65rem] before:text-bs-pink before:relative before:-top-2">
+              <p className="uppercase text-bs-pink text-[.65rem] ">
+                (5) Internal Works
+              </p>
+              <p className=" text-bs-pink text-[.65rem] ">
+                &copy;23 c/o BASIC/DEPT&reg;
+              </p>
+              <p className="uppercase text-bs-pink text-[.65rem] ">
+                A collection of internal project and initiatives underthe
+                BASIC/DEPT&reg; Brand.
+              </p>
+            </div>
+          </div>
+
+          <ul className="flex flex-wrap gap-5 h-full">
+            {data.allMarkdownRemark.edges.map((edge) => {
+              return (
+                <li
+                  key={edge.node.frontmatter?.order}
+                  className="w-[calc(50%_-_.6375rem)] border-t border-bs-pink relative">
+                  <span className="text-xs text-bs-pink absolute top-1 right-0">
+                    {parseInt(edge.node?.frontmatter?.order).toLocaleString(
+                      "en-US",
+                      {
+                        minimumIntegerDigits: 2,
+                        useGrouping: false,
+                      }
+                    )}
+                  </span>
+
+                  <GatsbyImage
+                    className="mt-6 h-max-[350px] object-cover"
+                    image={
+                      getImage(
+                        edge.node?.frontmatter?.featuredImage?.childImageSharp
+                          ?.gatsbyImageData as ImageDataLike
+                      ) as IGatsbyImageData
+                    }
+                    alt={edge.node?.frontmatter?.featuredImageAlt as string}
+                  />
+
+                  <div className="mt-5 pb-20">
+                    <div className="text-bs-pink relative">
+                      <h5 className="font-extrabold antialiased uppercase text-lg">
+                        {edge.node.frontmatter?.title}
+                      </h5>
+                      <span className="relative -top-1 uppercase text-xs">
+                        {edge.node.frontmatter?.subtext}
+                      </span>
+                      <p className="uppercase font-extrabold text-lg antialiased absolute right-0 top-0">
+                        &copy;{edge.node.frontmatter?.year}
+                      </p>
+                      <p className="text-[0.825rem] py-5">
+                        {edge.node.internal.content}
+                      </p>
+                      <Link
+                        to={edge.node.frontmatter?.link as string}
+                        className="text-sm font-extrabold antialiased underline">
+                        {edge.node.frontmatter?.linkText}
+                      </Link>
+                    </div>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+
+      <div className="fixed bottom-0 left-0 w-full h-10">
+        <div className="bs-wrapper">
+          <div className="flex items-center h-5 justify-between">
+            <span className="text-bs-grey sm:text-[1.25rem] text-[.65rem] uppercase">
+              Basic/Dept&reg;, Inc
+            </span>
+            <span className="text-bs-grey sm:text-[1.25rem] text-[.65rem] uppercase">
+              10 - 23&copy;
+            </span>
+          </div>
         </div>
       </div>
     </div>

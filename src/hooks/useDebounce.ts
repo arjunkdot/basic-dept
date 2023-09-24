@@ -1,4 +1,3 @@
-
 const useDebounce = (fn: Function, delay: number) => {
     let timerID: ReturnType<typeof setTimeout>;
     return (...args: []) => {

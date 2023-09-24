@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import useDebounce from './useDebounce';
 const useMobile = (breakpoint: number) => {
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
