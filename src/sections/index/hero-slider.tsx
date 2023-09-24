@@ -49,10 +49,10 @@ const HeroSlider = () => {
           className="relative z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-2/3 uppercase  inline-flex flex-col items-center justify-center font-extrabold text-sm"
           variants={variants}
           animate={cursorVariant}>
-          <span className=" bg-bs-white xl:w-[80px] xl:h-[80px] xl:text-[1.05rem] xl:leading-[1.35rem] w-[8.25vw] h-[8.25vw] rounded-full flex justify-center items-center px-5 text-center">
+          <span className=" bg-bs-white sm:w-[80px] sm:h-[80px] xl:w-[85px] xl:h-[80px] sm:text-[1.05rem] xl:text-[.575rem] sm:leading-[1.35rem] xl:leading-3 w-[8.25vw] h-[8.25vw] rounded-full flex justify-center items-center px-5 text-center">
             Watch Reel
           </span>
-          <span className="block text-center mt-3 text-bs-white  xl:text-[1.05rem] text-sm antialiased">
+          <span className="block text-center mt-3 text-bs-white sm:text-[1.05rem  xl:text-[.575rem] xl:leading-3 text-sm antialiased">
             Basic/Dept&reg;
             <br />
             2010-∞

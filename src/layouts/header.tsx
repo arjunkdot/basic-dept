@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
+import useMobile from "../hooks/useMobile";
 import { Link } from "gatsby";
-import HeaderMenu from "./header-menu";
+import HeaderMenu, { ResponsiveHeaderMenu } from "./header-menu";
 const headerNavItems = [
   {
     id: 1,
@@ -42,6 +43,7 @@ const Header = () => {
   const showMenu = () => {
     setIsMenuVisible(true);
   };
+
 
   useEffect(() => {
     // For smooth scrolling
@@ -84,6 +86,8 @@ const Header = () => {
     lenis.on("scroll", () => handleScroll());
   }, []);
 
+  const isMobile = useMobile(1280);
+
   return (
     <>
       <div className="bs-noise-background"></div>
@@ -91,13 +95,13 @@ const Header = () => {
         ref={headerRef}
         className={`left-0 -top-1  z-10 fixed w-full ${
           isScrollPassed
-            ? "bg-bs-light dark:bg-bs-dark bs-header-noise-background w-full h-[8.5rem]"
+            ? "bg-bs-light dark:bg-bs-dark bs-header-noise-background w-full xl:h-[6rem] h-[8.5rem]"
             : ""
         }`}>
         <div
-          className={`bs-wrapper fixed flex justify-between items-center  w-full h-[8.5rem]  top-0 left-1/2 translate-x-[-50%]`}>
+          className={`bs-wrapper fixed flex justify-between items-center  w-full xl:h-[6rem] h-[8.5rem]  top-0 left-1/2 translate-x-[-50%]`}>
           <Link to="/">
-            <figure className="sm:w-60 w-40 h-auto">
+            <figure className="sm:w-60 xl:w-32 w-40 h-auto">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 208.3 27.7"
@@ -151,6 +155,7 @@ const Header = () => {
               } before:w-[0.4vw] before:h-[0.4vw] before:rounded-full before:right-[0.6vw] before:ease-default before:duration-150 group-hover:after:left-[0.65vw] group-hover:before:right-[0.65vw] group-hover:before:ease-default group-hover:before:duration-150 group-hover:after:ease-default group-hover:after:duration-150`}></span>
           </button>
           <button
+          onClick={showMenu}
             className={`relative after:content-[''] text-bs-light sm:text-[1.75rem] text-[0.875rem] uppercase after:absolute after:w-[0%] after:h-[1px] after:right-0 after:bottom-[2px]   ${
               isScrollPassed
                 ? "after:bg-bs-dark text-bs-light  dark:after:bg-bs-pink dark:text-bs-pink"
@@ -160,7 +165,8 @@ const Header = () => {
             </button>
         </div>
       </header>
-      {isMenuVisible && <HeaderMenu setIsMenuVisible={setIsMenuVisible} />}
+      {isMenuVisible && (isMobile ? <ResponsiveHeaderMenu menuItems={headerNavItems} setIsMenuVisible={setIsMenuVisible} /> : <HeaderMenu setIsMenuVisible={setIsMenuVisible} />)}
+
     </>
   );
 };

@@ -63,7 +63,7 @@ const Footer = () => {
           </div>
           <div className="w-1/2 flex xl:flex-col xl:gap-14 justify-between pr-[6.9rem]">
             <div>
-              <h4 className="relative sm:pl-8 xl:pl-5 pl-6 uppercase tracking-wide sm:text-2xl xl:text-sm text-lg before:content-['●'] before:absolute before:inline-block  xl:before:left-0 xl:before:-left[.1rem]">
+              <h4 className="relative sm:pl-8 xl:pl-5 pl-6 uppercase tracking-wide sm:text-2xl xl:text-sm text-lg before:content-['●'] before:absolute before:inline-block xl:before:left-0  before:-left-[.1rem]">
                 Social
               </h4>
               <ul className="mt-4">
