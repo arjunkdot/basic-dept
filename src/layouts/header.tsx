@@ -48,7 +48,7 @@ const Header = () => {
   useEffect(() => {
     // For smooth scrolling
     const lenis = new Lenis({
-      duration: 3,
+      duration: 1,
     });
 
     function raf(time: number) {
@@ -59,27 +59,26 @@ const Header = () => {
     requestAnimationFrame(raf);
 
     // To hide / show navigation on scroll
-    const downThreshould = -126;
+    
+    const downThreshould = -(Math.round(window.innerHeight / 10));
     let mover = 0;
     const windowHeight = window.innerHeight;
 
     const handleScroll = () => {
       if (lenis.scroll > windowHeight) {
-        // console.log('ADD')
         setIsScrollPassed(true);
       } else {
-        // console.log('REMOVE')
         setIsScrollPassed(false);
       }
       let direction = lenis.direction;
       if (direction === 1) {
         // Down
         if (mover <= downThreshould) return;
-        headerRef.current!.style.transform = `translateY(${--mover}px)`;
+        headerRef.current!.style.transform = `translateY(${--mover * 4}px)`;
       } else if (direction === -1) {
         // Up
         if (mover > 0) return;
-        headerRef.current!.style.transform = `translateY(${++mover}px)`;
+        headerRef.current!.style.transform = `translateY(${++mover * 4}px)`;
       }
     };
 
