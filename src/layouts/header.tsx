@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
+import useMobile from "../hooks/useMobile";
 import { Link } from "gatsby";
-import HeaderMenu from "./header-menu";
+import HeaderMenu, { ResponsiveHeaderMenu } from "./header-menu";
 const headerNavItems = [
   {
     id: 1,
@@ -42,6 +43,7 @@ const Header = () => {
   const showMenu = () => {
     setIsMenuVisible(true);
   };
+
 
   useEffect(() => {
     // For smooth scrolling
@@ -84,18 +86,22 @@ const Header = () => {
     lenis.on("scroll", () => handleScroll());
   }, []);
 
+  const isMobile = useMobile(1280);
+
   return (
     <>
       <div className="bs-noise-background"></div>
       <header
         ref={headerRef}
         className={`left-0 -top-1  z-10 fixed w-full ${
-          isScrollPassed ? "bg-bs-light dark:bg-bs-dark bs-header-noise-background w-full h-[126px]" : ""
+          isScrollPassed
+            ? "bg-bs-light dark:bg-bs-dark bs-header-noise-background w-full xl:h-[6rem] h-[8.5rem]"
+            : ""
         }`}>
         <div
-          className={`bs-wrapper fixed flex justify-between items-center  w-full h-[126px]  top-0 left-1/2 translate-x-[-50%]`}>
+          className={`bs-wrapper fixed flex justify-between items-center  w-full xl:h-[6rem] h-[8.5rem]  top-0 left-1/2 translate-x-[-50%]`}>
           <Link to="/">
-            <figure className="w-40 h-auto">
+            <figure className="sm:w-60 xl:w-32 w-40 h-auto">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 208.3 27.7"
@@ -107,12 +113,12 @@ const Header = () => {
               </svg>
             </figure>
           </Link>
-          <nav className="w-[48%] max-w-[700px] mr-[9rem]">
+          <nav className="w-[48%] max-w-[40vw] mr-[9rem] xl:hidden">
             <ul className="flex justify-between uppercase text-sm text-bs-light dark:text-bs-pink">
               {headerNavItems.map((item) => (
                 <li
                   key={item.id}
-                  className={`relative after:content-[''] after:absolute after:w-[0%] after:h-[1px] after:right-0 after:bottom-[2px]   ${
+                  className={`relative after:content-[''] text-[0.875rem] after:absolute after:w-[0%] after:h-[1px] after:right-0 after:bottom-[2px]   ${
                     isScrollPassed
                       ? "after:bg-bs-dark  dark:after:bg-bs-pink"
                       : "after:bg-bs-light dark:after:bg-bs-pink"
@@ -131,10 +137,10 @@ const Header = () => {
             </ul>
           </nav>
           <button
-            className="group w-10 h-10 rounded-full cursor-pointer"
+            className="group w-10 h-10 rounded-full cursor-pointer xl:hidden"
             onClick={showMenu}>
             <span
-              className={`w-[6px] h-[6px] relative inline-block ${
+              className={`w-[0.4vw] h-[0.4vw] relative inline-block ${
                 isScrollPassed
                   ? "bg-bs-dark dark:bg-bs-pink"
                   : "bg-bs-light dark:bg-bs-pink"
@@ -142,15 +148,25 @@ const Header = () => {
                 isScrollPassed
                   ? "after:bg-bs-dark after:dark:bg-bs-pink"
                   : "after:bg-bs-light after:dark:bg-bs-pink"
-              } after:w-[6px] after:h-[6px] after:rounded-full after:left-[9px] after:ease-default after:duration-150 before:content-[''] before:inline-block before:absolute ${
+              } after:w-[0.4vw] after:h-[0.4vw] after:rounded-full after:left-[0.6vw] after:ease-default after:duration-150 before:content-[''] before:inline-block before:absolute ${
                 isScrollPassed
                   ? "before:bg-bs-dark before:dark:bg-bs-pink"
                   : "before:bg-bs-light before:dark:bg-bs-pink"
-              } before:w-[6px] before:h-[6px] before:rounded-full before:right-[9px] before:ease-default before:duration-150 group-hover:after:left-[10px] group-hover:before:right-[10px] group-hover:before:ease-default group-hover:before:duration-150 group-hover:after:ease-default group-hover:after:duration-150`}></span>
+              } before:w-[0.4vw] before:h-[0.4vw] before:rounded-full before:right-[0.6vw] before:ease-default before:duration-150 group-hover:after:left-[0.65vw] group-hover:before:right-[0.65vw] group-hover:before:ease-default group-hover:before:duration-150 group-hover:after:ease-default group-hover:after:duration-150`}></span>
           </button>
+          <button
+          onClick={showMenu}
+            className={`relative after:content-[''] text-bs-light sm:text-[1.75rem] text-[0.875rem] uppercase after:absolute after:w-[0%] after:h-[1px] after:right-0 after:bottom-[2px]   ${
+              isScrollPassed
+                ? "after:bg-bs-dark xl:text-bs-dark text-bs-light  dark:after:bg-bs-pink dark:text-bs-pink"
+                : "after:bg-bs-light dark:after:bg-bs-pink"
+            } after:ease-default after:duration-300 hover:after:w-[100%] hover:after:left-0 hover:after:ease-default hover:after:duration-300 hidden xl:block`}>
+              Menu
+            </button>
         </div>
       </header>
-      {isMenuVisible && <HeaderMenu setIsMenuVisible={setIsMenuVisible} />}
+      {isMenuVisible && (isMobile ? <ResponsiveHeaderMenu menuItems={headerNavItems} setIsMenuVisible={setIsMenuVisible} /> : <HeaderMenu setIsMenuVisible={setIsMenuVisible} />)}
+
     </>
   );
 };

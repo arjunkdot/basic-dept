@@ -2,17 +2,17 @@ import React from "react";
 import LinkButton from "../../components/link-button";
 const CompanyIntro = () => {
   return (
-    <section className="flex gap-x-10 items-start pt-24 " >
-      <div className="w-1/2 pr-[3.8rem]">
-        <p className="text-[2.35rem] leading-[2.6rem] font-scoto font-bold antialiased tracking-tight	 text-bs-dark dark:text-bs-pink mb-10">
+    <section className="flex xl:flex-wrap gap-x-10 items-start pt-24 " >
+      <div className="xl:w-full w-1/2 xl:pr-0 pr-[3.8rem]">
+        <p className="sm:text-[2.45rem] text-[2.35rem] leading-[2.6rem] font-scoto font-bold antialiased tracking-tight	 text-bs-dark dark:text-bs-pink mb-10">
           BASIC/DEPT&reg; is a global branding and digital design agency
           building products, servies, and eCommerce experiences that turn
           cultural values into company value.
         </p>
         <LinkButton path="/" text="See the Work" />
       </div>
-      <div className="w-1/2">
-        <figure className="w-[80%] object-contain object-top ml-auto">
+      <div className="xl:w-full w-1/2">
+        <figure className="xl:w-[50%] w-[80%] object-contain object-top ml-auto">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 307 100"

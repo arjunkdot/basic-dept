@@ -5,7 +5,7 @@ type: blog
 category: press
 featuredImage: ../../images/blogs/blog-02.png
 featuredImageAlt: Breaking Through the Branding Blahs
-date: 06/16/2023
+date: 06.16.2023
 order: 2
 ---
 Tech likes to talk. And we like to listen. Especially if someone invents those hoverboards from Back to the Future II.
