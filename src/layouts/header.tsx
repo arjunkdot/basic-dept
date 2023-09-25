@@ -158,7 +158,7 @@ const Header = () => {
           onClick={showMenu}
             className={`relative after:content-[''] text-bs-light sm:text-[1.75rem] text-[0.875rem] uppercase after:absolute after:w-[0%] after:h-[1px] after:right-0 after:bottom-[2px]   ${
               isScrollPassed
-                ? "after:bg-bs-dark text-bs-light  dark:after:bg-bs-pink dark:text-bs-pink"
+                ? "after:bg-bs-dark xl:text-bs-dark text-bs-light  dark:after:bg-bs-pink dark:text-bs-pink"
                 : "after:bg-bs-light dark:after:bg-bs-pink"
             } after:ease-default after:duration-300 hover:after:w-[100%] hover:after:left-0 hover:after:ease-default hover:after:duration-300 hidden xl:block`}>
               Menu

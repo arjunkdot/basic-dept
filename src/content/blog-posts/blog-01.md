@@ -5,7 +5,7 @@ type: blog
 category: press
 featuredImage: ../../images/blogs/blog-01.png
 featuredImageAlt: The new roadmap for auto brands
-date: 08/01/2023
+date: 08.01.2023
 order: 1
 ---
 Remember when MTV only had music? Or when Nike just sold running shoes? The question du jour will one day be: remember when car brands were just car brands?

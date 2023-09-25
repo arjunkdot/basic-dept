@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import Lenis from "@studio-freight/lenis";
 import Carousel from "../components/carousel";
@@ -183,8 +183,17 @@ export const ResponsiveHeaderMenu = (props: ResponsiveHeaderMenuProps) => {
     }
   `);
 
+  const [isInitiativesVisible, setIsInitiativesVisible] = useState(false);
+
   const hideRespMenu = () => {
     props.setIsMenuVisible(false);
+  };
+
+  const showInitiatives = () => {
+    setIsInitiativesVisible(true);
+  };
+  const hideInitiatives = () => {
+    setIsInitiativesVisible(false);
   };
 
   useEffect(() => {
@@ -232,107 +241,110 @@ export const ResponsiveHeaderMenu = (props: ResponsiveHeaderMenuProps) => {
           </button>
         </div>
 
-        {/* <ul className="text-bs-pink xl:h-[calc(100vh_-_9rem)] sm:text-[2rem] text-2xl font-extrabold antialiased uppercase sm:pt-28 pt-10">
-          {props.menuItems.map((item) => (
-            <li key={item.id} className="sm:mb-[2.5rem] mb-4">
-              <Link to={item.path}>{item.label}</Link>
-            </li>
-          ))}
-          <li>
-            Initiatives{" "}
-            <figure className="relative fill-bs-pink inline-block -top-[.2rem] left-[.1rem] -rotate-90 w-[.875rem] h-[.625rem]">
-              <svg
-                className="w-full h-full"
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 14.1 8.5">
-                <path d="m14.1 1.4-7 7.1-1.4-1.4 7-7.1 1.4 1.4z"></path>
-                <path d="m1.4 0 7.1 7.1-1.4 1.4L0 1.4 1.4 0z"></path>
-              </svg>
-            </figure>
-          </li>
-        </ul> */}
-      </div>
-
-      <div className="bs-resp-menu-items xl:h-full overflow-y-auto pt-4">
-        <div className="bs-wrapper">
-          <div className="flex items-start pb-5">
-            <button
-              className="relative bg-bs-transparent w-[3rem] h-[3rem]"
-              aria-label="Go back">
-              <figure className="absolute -top-2 left-0 w-[.875rem] h-[.625rem] fill-bs-pink rotate-90">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.1 8.5">
+        {!isInitiativesVisible && (
+          <ul className="text-bs-pink xl:h-[calc(100vh_-_9rem)] sm:text-[2rem] text-2xl font-extrabold antialiased uppercase sm:pt-28 pt-10">
+            {props.menuItems.map((item) => (
+              <li key={item.id} className="sm:mb-[2.5rem] mb-4">
+                <Link to={item.path}>{item.label}</Link>
+              </li>
+            ))}
+            <li className="cursor-pointer" onClick={() => showInitiatives()}>
+              Initiatives{" "}
+              <figure className="relative fill-bs-pink inline-block -top-[.2rem] left-[.1rem] -rotate-90 w-[.875rem] h-[.625rem]">
+                <svg
+                  className="w-full h-full"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 14.1 8.5">
                   <path d="m14.1 1.4-7 7.1-1.4-1.4 7-7.1 1.4 1.4z"></path>
                   <path d="m1.4 0 7.1 7.1-1.4 1.4L0 1.4 1.4 0z"></path>
                 </svg>
               </figure>
-            </button>
-            <div className="relative before:content-['●'] before:block before:text-[.65rem] before:text-bs-pink before:relative before:-top-2">
-              <p className="uppercase text-bs-pink text-[.65rem] ">
-                (5) Internal Works
-              </p>
-              <p className=" text-bs-pink text-[.65rem] ">
-                &copy;23 c/o BASIC/DEPT&reg;
-              </p>
-              <p className="uppercase text-bs-pink text-[.65rem] ">
-                A collection of internal project and initiatives underthe
-                BASIC/DEPT&reg; Brand.
-              </p>
-            </div>
-          </div>
-
-          <ul className="flex flex-wrap gap-5 h-full">
-            {data.allMarkdownRemark.edges.map((edge) => {
-              return (
-                <li
-                  key={edge.node.frontmatter?.order}
-                  className="w-[calc(50%_-_.6375rem)] border-t border-bs-pink relative">
-                  <span className="text-xs text-bs-pink absolute top-1 right-0">
-                    {parseInt(edge.node?.frontmatter?.order).toLocaleString(
-                      "en-US",
-                      {
-                        minimumIntegerDigits: 2,
-                        useGrouping: false,
-                      }
-                    )}
-                  </span>
-
-                  <GatsbyImage
-                    className="mt-6 h-max-[350px] object-cover"
-                    image={
-                      getImage(
-                        edge.node?.frontmatter?.featuredImage?.childImageSharp
-                          ?.gatsbyImageData as ImageDataLike
-                      ) as IGatsbyImageData
-                    }
-                    alt={edge.node?.frontmatter?.featuredImageAlt as string}
-                  />
-
-                  <div className="mt-5 pb-20">
-                    <div className="text-bs-pink relative">
-                      <h5 className="font-extrabold antialiased uppercase text-lg">
-                        {edge.node.frontmatter?.title}
-                      </h5>
-                      <span className="relative -top-1 uppercase text-xs">
-                        {edge.node.frontmatter?.subtext}
-                      </span>
-                      <p className="uppercase font-extrabold text-lg antialiased absolute right-0 top-0">
-                        &copy;{edge.node.frontmatter?.year}
-                      </p>
-                      <p className="text-[0.825rem] py-5">
-                        {edge.node.internal.content}
-                      </p>
-                      <Link
-                        to={edge.node.frontmatter?.link as string}
-                        className="text-sm font-extrabold antialiased underline">
-                        {edge.node.frontmatter?.linkText}
-                      </Link>
-                    </div>
-                  </div>
-                </li>
-              );
-            })}
+            </li>
           </ul>
-        </div>
+        )}
+      </div>
+
+      <div className="bs-resp-menu-items xl:h-full overflow-y-auto pt-10 mt-6">
+        {isInitiativesVisible && (
+          <div className="bs-wrapper xl:before:content-[''] xl:before:block xl:before:z-40 xl:before:bg-bs-pink xl:before:fixed xl:before:left-0 xl:before:top-[7rem] xl:before:w-full xl:before:h-[1px]">
+            <div className="flex items-start pb-5">
+              <button
+                onClick={() => hideInitiatives()}
+                className="relative bg-bs-transparent w-[3rem] h-[3rem]"
+                aria-label="Go back">
+                <figure className="absolute -top-2 left-0 sm:w-[1.5rem] w-[.875rem] sm:h-[1.75rem] h-[.625rem] fill-bs-pink rotate-90">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 14.1 8.5">
+                    <path d="m14.1 1.4-7 7.1-1.4-1.4 7-7.1 1.4 1.4z"></path>
+                    <path d="m1.4 0 7.1 7.1-1.4 1.4L0 1.4 1.4 0z"></path>
+                  </svg>
+                </figure>
+              </button>
+              <div className="relative sm:pl-16 sm:max-w-[90%] sm:text-[1.2rem] text-[.65rem] before:content-['●'] before:block before:sm:text-[1.25rem] before:text-[.65rem] before:text-bs-pink before:relative before:-top-2">
+                <p className="uppercase text-bs-pink">(5) Internal Works</p>
+                <p className=" text-bs-pink ">&copy;23 c/o BASIC/DEPT&reg;</p>
+                <p className="uppercase text-bs-pink">
+                  A collection of internal project and initiatives underthe
+                  BASIC/DEPT&reg; Brand.
+                </p>
+              </div>
+            </div>
+
+            <ul className="flex flex-wrap gap-5 h-full">
+              {data.allMarkdownRemark.edges.map((edge) => {
+                return (
+                  <li
+                    key={edge.node.frontmatter?.order}
+                    className="sm:w-full w-[calc(50%_-_.6375rem)] border-t border-bs-pink relative">
+                    <span className="sm:text-xl text-xs text-bs-pink absolute top-1 right-0">
+                      {parseInt(edge.node?.frontmatter?.order).toLocaleString(
+                        "en-US",
+                        {
+                          minimumIntegerDigits: 2,
+                          useGrouping: false,
+                        }
+                      )}
+                    </span>
+
+                    <GatsbyImage
+                      className="sm:mt-10 mt-6 h-max-[350px] object-cover"
+                      image={
+                        getImage(
+                          edge.node?.frontmatter?.featuredImage?.childImageSharp
+                            ?.gatsbyImageData as ImageDataLike
+                        ) as IGatsbyImageData
+                      }
+                      alt={edge.node?.frontmatter?.featuredImageAlt as string}
+                    />
+
+                    <div className="sm:mt-12 mt-5 pb-20">
+                      <div className="text-bs-pink relative">
+                        <h5 className="font-extrabold antialiased uppercase sm:text-[2.15rem] text-lg">
+                          {edge.node.frontmatter?.title}
+                        </h5>
+                        <span className="relative sm:top-4 -top-1 uppercase sm:text-[1.275rem] text-xs">
+                          {edge.node.frontmatter?.subtext}
+                        </span>
+                        <p className="uppercase font-extrabold sm:text-[2.15rem] text-lg antialiased absolute right-0 top-0">
+                          &copy;{edge.node.frontmatter?.year}
+                        </p>
+                        <p className="sm:text-[1.625rem] text-[0.825rem] sm:py-16 py-5">
+                          {edge.node.internal.content}
+                        </p>
+                        <Link
+                          to={edge.node.frontmatter?.link as string}
+                          className="sm:text-[1.625rem] text-sm font-extrabold antialiased underline">
+                          {edge.node.frontmatter?.linkText}
+                        </Link>
+                      </div>
+                    </div>
+                  </li>
+                );
+              })}
+            </ul>
+          </div>
+        )}
       </div>
 
       <div className="fixed bottom-0 left-0 w-full h-10">
