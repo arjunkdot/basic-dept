@@ -40,6 +40,11 @@ module.exports = {
           "0%": { opacity: "0" },
           "100%": { opacity: "1" },
         },
+        loaderFadeOut: {
+          "0%": { opacity: "1" },
+          "99%": { opacity: "1" },
+          "100%": { opacity: "0" },
+        },
         menuSlideIn: {
           "0%": { transform: "translateX(20%)" },
           "100%": { transform: "translateX(0%)" },
@@ -54,6 +59,19 @@ module.exports = {
           "0%": { width: "80%", right: "20vw" },
           "100%": { width: "0%", right: "100vw" },
         },
+        fadeInUp: {
+          "0%": { opacity: 0, top: "10px" },
+          "100%": { opacity: 1, top: "0px" },
+        },
+        overlayInUp: {
+          "0%": { opacity: 1, transform: "translateY(100%)", height: "100vh" },
+          "99%": { opacity: 1, transform: "translateY(50%)"},
+          "100%": { opacity: 1 },
+        },
+        shutterInUp: {
+          "0%": { opacity: 1, height: "100vh" },
+          "100%": { opacity: 1, height: "0vh", display: "none" },
+        },
       },
       animation: {
         "arrow-lead": "arrowLinear 0.5s ease-in-out forwards",
@@ -62,6 +80,10 @@ module.exports = {
         "menu-slide-in": "menuSlideIn 0.8s ease 0.4s forwards",
         "menu-fadein": "fadeIn 0.5s ease-in-out forwards",
         "menu-footer-fadein": "fadeIn 0.5s ease-in-out 1.2s forwards",
+        "fade-in-up": "fadeInUp 0.3s ease-in-out forwards",
+        "loader-fade-out": "loaderFadeOut 0.3s ease-in-out 0.5s forwards",
+        "overlay-up": "overlayInUp 0.5s ease-in-out 0.1s forwards",
+        "shutter-up": "shutterInUp 0.5s ease-in-out 0.6s forwards",
       },
     },
   },

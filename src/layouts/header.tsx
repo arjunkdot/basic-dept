@@ -44,7 +44,6 @@ const Header = () => {
     setIsMenuVisible(true);
   };
 
-
   useEffect(() => {
     // For smooth scrolling
     const lenis = new Lenis({
@@ -59,8 +58,8 @@ const Header = () => {
     requestAnimationFrame(raf);
 
     // To hide / show navigation on scroll
-    
-    const downThreshould = -(Math.round(window.innerHeight / 10));
+
+    const downThreshould = -Math.round(window.innerHeight / 10);
     let mover = 0;
     const windowHeight = window.innerHeight;
 
@@ -89,7 +88,7 @@ const Header = () => {
 
   return (
     <>
-      <div className="bs-noise-background"></div>
+      <div className="bs-noise-background bs-noise-background--stack-below"></div>
       <header
         ref={headerRef}
         className={`left-0 -top-1  z-10 fixed w-full ${
@@ -114,7 +113,7 @@ const Header = () => {
           </Link>
           <nav className="w-[48%] max-w-[40vw] mr-[9rem] xl:hidden">
             <ul className="flex justify-between uppercase text-sm text-bs-light dark:text-bs-pink">
-              {headerNavItems.map((item) => (
+              {headerNavItems.map((item, index) => (
                 <li
                   key={item.id}
                   className={`relative after:content-[''] text-[0.875rem] after:absolute after:w-[0%] after:h-[1px] after:right-0 after:bottom-[2px]   ${
@@ -124,7 +123,9 @@ const Header = () => {
                   } after:ease-default after:duration-300 hover:after:w-[100%] hover:after:left-0 hover:after:ease-default hover:after:duration-300`}>
                   <Link
                     to={item.path}
-                    className={` ${
+                    className={`relative opacity-0 animate-fade-in-up bs-animation-delay-${
+                      index + 1
+                    } ${
                       isScrollPassed
                         ? "text-bs-dark  dark:text-bs-pink"
                         : "text-bs-light dark:text-bs-pink"
@@ -154,18 +155,25 @@ const Header = () => {
               } before:w-[0.4vw] before:h-[0.4vw] before:rounded-full before:right-[0.6vw] before:ease-default before:duration-150 group-hover:after:left-[0.65vw] group-hover:before:right-[0.65vw] group-hover:before:ease-default group-hover:before:duration-150 group-hover:after:ease-default group-hover:after:duration-150`}></span>
           </button>
           <button
-          onClick={showMenu}
+            onClick={showMenu}
             className={`relative after:content-[''] text-bs-light sm:text-[1.75rem] text-[0.875rem] uppercase after:absolute after:w-[0%] after:h-[1px] after:right-0 after:bottom-[2px]   ${
               isScrollPassed
                 ? "after:bg-bs-dark xl:text-bs-dark text-bs-light  dark:after:bg-bs-pink dark:text-bs-pink"
                 : "after:bg-bs-light dark:after:bg-bs-pink"
             } after:ease-default after:duration-300 hover:after:w-[100%] hover:after:left-0 hover:after:ease-default hover:after:duration-300 hidden xl:block`}>
-              Menu
-            </button>
+            Menu
+          </button>
         </div>
       </header>
-      {isMenuVisible && (isMobile ? <ResponsiveHeaderMenu menuItems={headerNavItems} setIsMenuVisible={setIsMenuVisible} /> : <HeaderMenu setIsMenuVisible={setIsMenuVisible} />)}
-
+      {isMenuVisible &&
+        (isMobile ? (
+          <ResponsiveHeaderMenu
+            menuItems={headerNavItems}
+            setIsMenuVisible={setIsMenuVisible}
+          />
+        ) : (
+          <HeaderMenu setIsMenuVisible={setIsMenuVisible} />
+        ))}
     </>
   );
 };

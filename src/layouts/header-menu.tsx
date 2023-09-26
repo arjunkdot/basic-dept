@@ -332,11 +332,11 @@ export const ResponsiveHeaderMenu = (props: ResponsiveHeaderMenuProps) => {
                         <p className="sm:text-[1.625rem] text-[0.825rem] sm:py-16 py-5">
                           {edge.node.internal.content}
                         </p>
-                        <Link
-                          to={edge.node.frontmatter?.link as string}
+                        <a
+                          href={edge.node.frontmatter?.link as string}
                           className="sm:text-[1.625rem] text-sm font-extrabold antialiased underline">
                           {edge.node.frontmatter?.linkText}
-                        </Link>
+                        </a>
                       </div>
                     </div>
                   </li>

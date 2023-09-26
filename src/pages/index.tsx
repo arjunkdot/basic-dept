@@ -1,7 +1,6 @@
 import * as React from "react";
 import { graphql, PageProps } from "gatsby";
 import { Helmet } from "react-helmet";
-import { awards as awardsData } from "./index-data";
 import Awards from "../components/awards";
 import CompanyIntro from "../sections/index/company-intro";
 import GridShowcase from "../components/grid-showcase";
@@ -46,6 +45,7 @@ const IndexPage = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
         <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
       </Helmet>
 
+      
       <main>
         <HeroSlider />
         <div className="bs-wrapper">
@@ -106,9 +106,7 @@ export const ShowCaseQuery = graphql`
             featuredImgAlt
           }
           id
-          internal {
-            content
-          }
+          html
         }
       }
     }
