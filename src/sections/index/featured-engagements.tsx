@@ -1,4 +1,5 @@
 import React from "react";
+import parse from 'html-react-parser';
 import Carousel from "../../components/carousel";
 import { PageProps } from "gatsby";
 
@@ -45,9 +46,9 @@ const FeaturedEngagements = ({
                 <h3 className="relative sm:text-[2rem] xl:text-lg text-2xl uppercase font-scoto font-extrabold text-bs-dark dark:text-bs-pink sm:mt-6 mt-4 sm:pt[5rem] sm:pt-[6rem] xl:pt-[3rem] pt-[5.5rem] before:content-[''] before:sm:w-[20px] before:w-[1.3rem] before:sm:h-[2px] before:h-[0.13rem] before:bg-bs-dark before:absolute before:block before:top-0 before:left-0 ease-in duration-700">
                   {edge.node.frontmatter?.title}
                 </h3>
-                <p className="text-bs-dark dark:text-bs-pink sm:text-[1.7rem] xl:text-[0.8rem] text-lg xl:leading-normal leading-[1.563] font-bold antialiased sm:mt-10 mt-5 ease-in duration-700">
-                  {edge.node.internal.content}
-                </p>
+                <div className="text-bs-dark dark:text-bs-pink sm:text-[1.7rem] xl:text-[0.8rem] text-lg xl:leading-normal leading-[1.563] font-bold antialiased sm:mt-10 mt-5 ease-in duration-700 bs-link-underline">
+                  {parse(edge.node.html as string)}
+                </div>
               </li>
             );
           })}

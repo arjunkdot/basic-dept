@@ -1,11 +1,11 @@
 import React, { PropsWithChildren, useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
-
 const Carousel = (props: PropsWithChildren) => {
   const [isDown, setIsDown] = useState(false); // Scroll on drag: To check whether the mouse is down.
   const [startX, setStartX] = useState(0); // Scroll on drag: Starting position once the the mouse is clicked on the slider.
   const [scrollLeft, setscrollLeft] = useState(0);
   const cursorRef = useRef<HTMLDivElement>(null);
+  const cursorTextRef = useRef<HTMLSpanElement>(null);
   const carouselContainerRef = useRef<HTMLDivElement>(null);
   const carouselRef = useRef<HTMLUListElement>(null);
   const scrollbarContainerRef = useRef<HTMLDivElement>(null);
@@ -58,6 +58,14 @@ const Carousel = (props: PropsWithChildren) => {
 
   function handleMouseMove(e: MouseEvent) {
     const carouselRect = carouselContainerRef.current?.getBoundingClientRect();
+    // Check if the cursor is pointing to a link.
+    if(e.target!.tagName.toLowerCase() === 'a'){
+      cursorRef.current!.style.opacity = "0.3";
+      cursorTextRef.current!.style.display = "none";
+    }else{
+      cursorRef.current!.style.opacity = "1";
+      cursorTextRef.current!.style.display = "inline-block";
+    }
     if (carouselRect) {
       // To reset cursor position before setting axes
       cursorRef.current!.style.left = "0px";
@@ -134,7 +142,7 @@ const Carousel = (props: PropsWithChildren) => {
             ? ""
             : "before:border-opacity-0 before:ease-linear before:duration-150  before:-left-[30px] after:border-opacity-0 after:ease-linear after:duration-150  after:-right-[30px]"
         } rounded-full `}>
-        <span
+        <span ref={cursorTextRef}
           className={`font-extrabold uppercase text-sm text-bs-dark ease-linear duration-150 ${
             isDown ? "invisible" : "block"
           }`}>
