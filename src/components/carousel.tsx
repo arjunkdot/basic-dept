@@ -1,6 +1,11 @@
 import React, { PropsWithChildren, useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
+import { isBrowser } from "./../utils/utils";
 const Carousel = (props: PropsWithChildren) => {
+  if (!isBrowser) {
+    return;
+  }
+
   const [isDown, setIsDown] = useState(false); // Scroll on drag: To check whether the mouse is down.
   const [startX, setStartX] = useState(0); // Scroll on drag: Starting position once the the mouse is clicked on the slider.
   const [scrollLeft, setscrollLeft] = useState(0);

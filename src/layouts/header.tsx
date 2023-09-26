@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Lenis from "@studio-freight/lenis";
 import useMobile from "../hooks/useMobile";
 import { Link } from "gatsby";
+import { isBrowser } from "./../utils/utils";
 import HeaderMenu, { ResponsiveHeaderMenu } from "./header-menu";
 const headerNavItems = [
   {
@@ -36,6 +37,9 @@ const headerNavItems = [
   },
 ];
 const Header = () => {
+  if(!isBrowser){
+    return;
+  }
   const [isMenuVisible, setIsMenuVisible] = useState(false);
   const [isScrollPassed, setIsScrollPassed] = useState(false);
   const headerRef = useRef<HTMLDivElement>(null);
