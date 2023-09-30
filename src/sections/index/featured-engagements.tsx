@@ -35,7 +35,7 @@ const FeaturedEngagements = ({
                     viewBox="0 0 272 92"
                     width="272"
                     height="92"
-                    className="block w-full h-auto pointer-events-none"></svg>
+                    className="block w-full h-auto pointer-events-none absolute"></svg>
                   <img
                     src={`images/${edge.node.frontmatter?.featuredImage?.relativePath}`}
                     alt={edge.node.frontmatter?.featuredImgAlt as string}

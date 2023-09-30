@@ -21,7 +21,7 @@ const FeaturedNews = ({
               <Link to="/" className="flex sm:flex-col items-stretch">
                 <div className="sm:w-full w-1/3 relative overflow-hidden">
                   <svg
-                    className="block w-full h-auto pointer-events-none"
+                    className="block w-full h-auto pointer-events-none absolute"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 1000 734"
                     width="1000"
