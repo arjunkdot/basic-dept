@@ -189,3 +189,6 @@ body {
 .bs-link-underline a{
   text-decoration: underline;
 }
+.grid-showcase-image, .featured-news-image{
+  position: absolute;
+}

@@ -10,7 +10,7 @@ const FeaturedNews = ({
   data,
 }: PageProps<Queries.GridShowcaseQuery["blogs"]>) => {
   return (
-    <section className="xl:mt-12 mt-40 sm:mb-28 xl:mb-20 mb-36">
+    <section className="xl:mt-12 mt-40 sm:mb-28 xl:mb-20 mb-36 ">
       <h2 className="text-bs-dark dark:text-bs-pink sm:text-[2.625rem] xl:text-2xl text-[2.625rem] sm:leading-10 leading-[2.875rem] uppercase font-extrabold antialiased block sm:w-1/3 xl:w-full w-[250px] mt-[4.5rem] xl:mb-10 mb-16">
         Featured News
       </h2>
@@ -21,14 +21,14 @@ const FeaturedNews = ({
               <Link to="/" className="flex sm:flex-col items-stretch">
                 <div className="sm:w-full w-1/3 relative overflow-hidden">
                   <svg
-                    className="block w-full h-auto pointer-events-none absolute"
+                    className="block w-full h-auto pointer-events-none"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 1000 734"
                     width="1000"
                     height="734"></svg>
                   <figure>
                     <GatsbyImage
-                    className="absolute top-0 left-0 w-full h-full object-cover scale-[105%] ease ease-default duration-300 group-hover:scale-[100%] group-hover:ease group-hover:ease-default group-hover:duration-300"
+                    className="absolute featured-news-image top-0 left-0 w-full h-full object-cover scale-[105%] ease ease-default duration-300 group-hover:scale-[100%] group-hover:ease group-hover:ease-default group-hover:duration-300"
                       image={
                         getImage(
                           edge.node.frontmatter?.featuredImage?.childImageSharp
