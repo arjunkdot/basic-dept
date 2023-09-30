@@ -1,5 +1,7 @@
 # BASIC/DEPT® Website Clone
 
+**THIS PROJECT IS MORE OF A PRACTICE RUN AND EDUCATIONAL ENDEAVOR RATHER THAN THE REAL DEAL. JUST SO YOU KNOW, I DON'T OWN ANY OF THE GRAPHICS, VIDEOS, OR OTHER STUFF USED HERE. THIS ISN'T CONNECTED TO OR APPROVED BY THE OFFICIAL SOURCE IN ANY FANCY WAY. SO, KEEP IN MIND, IT'S ALL IN THE SPIRIT OF LEARNING AND NOT THE ACTUAL PRODUCT.**
+
 I decided to take up [this](https://www.frontendpractice.com/projects/basic) challenge at [Frontend Practice](https://www.frontendpractice.com) and rebuild the BASIC/DEPT® landing page using Gatsby, along with Tailwind CSS in TypeScript. This is my solution. Feel free to have a peek at the source or take the live version out for a spin.
 
 ## Table of contents
@@ -44,9 +46,10 @@ I decided to take up [this](https://www.frontendpractice.com/projects/basic) cha
 ### What I learned
 
 - Learned to use Gatsby to build websites.
+- Learned to use Gatsby's GraphiQL interface.
 - Learned how to write basic GraphQL queries. 
-- Learned to use Framer Motion to implement a 
-
+- Learned about Gatsby GraphQL Typegen.
+- Learned to use Framer Motion to implement a custom cursor.
 
 ## Author
 
