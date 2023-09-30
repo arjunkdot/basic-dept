@@ -11,14 +11,14 @@ import Spotlight from "../sections/index/spotlight";
 import FeaturedNews from "../sections/index/featured-news";
 
 const IndexPage = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
-
-  if(!isBrowser){
+  if (!isBrowser) {
     return;
   }
-  
+
   const caseStudies = data.caseStudies;
   const clients = data.clients;
   const blogs = data.blogs;
+  const awards = data.awards;
 
   // Toggle dark mode on/off based on scroll positions
   React.useEffect(() => {
@@ -50,11 +50,10 @@ const IndexPage = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
         <link rel="icon" type="image/x-icon" href="/images/favicon.ico" />
       </Helmet>
 
-      
       <main>
         <HeroSlider />
         <div className="bs-wrapper">
-          <Awards items={awardsData} />
+          <Awards data={awards} />
           <CompanyIntro />
         </div>
         <GridShowcase data={caseStudies} />
@@ -133,6 +132,28 @@ export const ShowCaseQuery = graphql`
                 gatsbyImageData(width: 720, placeholder: DOMINANT_COLOR)
               }
             }
+          }
+        }
+      }
+    }
+    awards: allMarkdownRemark(
+      filter: { frontmatter: { type: { eq: "awards" } } }
+      sort: { frontmatter: { order: ASC } }
+    ) {
+      edges {
+        node {
+          frontmatter {
+            title
+            order
+            path
+            featuredImageAlt
+            featuredImage {
+              relativePath
+            }
+          }
+          id
+          internal {
+            content
           }
         }
       }
