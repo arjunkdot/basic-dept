@@ -93,7 +93,7 @@ const HeaderMenu = (props: HeaderMenuProps) => {
                   <div className="flex flex-col">
                     <div className="relative oveflow-hidden shrink-0 ease-default overflow-hidden duration-300 h-[calc(100vh-47vh)] group-hover:h-[calc(100vh-65vh)] group-hover:ease-default group-hover:duration-300">
                       <svg
-                        className="block w-full h-auto pointer-events-none"
+                        className="block w-full h-auto pointer-events-none absolute"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 630 788"
                         width="630"

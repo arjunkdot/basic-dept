@@ -30,7 +30,7 @@ const GridShowcase = ({ data }: PageProps<Queries.GridShowcaseQuery["caseStudies
                         viewBox="0 0 720 900"
                         width="720"
                         height="900"
-                        className="block pointer-events-none w-full h-auto absolute"></svg>
+                        className="block pointer-events-none w-full h-auto"></svg>
                       <GatsbyImage
                         className="absolute left-0 top-0 w-full h-full scale-105 ease-default duration-300 origin-center group-hover:scale-100 group-hover:ease-default group-hover:duration-300"
                         image={

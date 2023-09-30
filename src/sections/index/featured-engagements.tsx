@@ -22,7 +22,7 @@ const FeaturedEngagements = ({
           Featured Engagements
         </h2>
       </div>
-      <div  className="mb-20">
+      <div className="mb-20">
         <Carousel>
           {data.edges.map((edge) => {
             return (
@@ -35,7 +35,7 @@ const FeaturedEngagements = ({
                     viewBox="0 0 272 92"
                     width="272"
                     height="92"
-                    className="block w-full h-auto pointer-events-none absolute"></svg>
+                    className="block w-full h-auto pointer-events-none"></svg>
                   <img
                     src={`images/${edge.node.frontmatter?.featuredImage?.relativePath}`}
                     alt={edge.node.frontmatter?.featuredImgAlt as string}
