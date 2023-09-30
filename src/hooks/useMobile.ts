@@ -2,9 +2,11 @@ import { useState, useEffect } from 'react'
 import useDebounce from './useDebounce';
 import { isBrowser } from "./../utils/utils";
 const useMobile = (breakpoint: number) => {
+
   if (!isBrowser) {
     return;
   }
+
   const [innerWidth, setInnerWidth] = useState(window.innerWidth);
 
 

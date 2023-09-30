@@ -174,7 +174,7 @@ const Footer = () => {
 
       <div className="bg-bs-extradark text-bs-grey w-full sm:py-9 xl:py-4 py-6">
         <div className="bs-wrapper flex xl:flex-col xl:items-center xl:justify-center align-middle justify-between sm:text-xl sm:gap-1 text-[.688rem] antialiased uppercase">
-          <span>BASIC/DEPT®, INC 10 - 23©</span>
+          <span className="xl:text-center">BASIC/DEPT®, INC 10 - 23© – Original Design by <a className="hover:underline" href="https://www.basicagency.com/" target="_blank">BASIC/DEPT®</a>, Coded by <a className="hover:underline" href="https://github.com/arjunkdot" target="_blank">@arjunkdot</a></span>
           <span>EASY TO UNDERSTAND, IMPOSSIBLE TO IGNORE.™</span>
           <span>
             <Link to="/"className="font-bold hover:underline">Terms</Link>,<Link to="/"className="font-bold hover:underline">Privacy Policy</Link>

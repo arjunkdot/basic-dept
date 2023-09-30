@@ -6,11 +6,11 @@ import CompanyIntro from "../sections/index/company-intro";
 import GridShowcase from "../components/grid-showcase";
 import HeroSlider from "../sections/index/hero-slider";
 import FeaturedEngagements from "../sections/index/featured-engagements";
-import { isBrowser } from "./../utils/utils";
 import Spotlight from "../sections/index/spotlight";
 import FeaturedNews from "../sections/index/featured-news";
-
+import { isBrowser } from "./../utils/utils";
 const IndexPage = ({ data }: PageProps<Queries.GridShowcaseQuery>) => {
+
   if (!isBrowser) {
     return;
   }

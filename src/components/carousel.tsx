@@ -2,6 +2,7 @@ import React, { PropsWithChildren, useState, useEffect, useRef } from "react";
 import { motion } from "framer-motion";
 import { isBrowser } from "./../utils/utils";
 const Carousel = (props: PropsWithChildren) => {
+  
   if (!isBrowser) {
     return;
   }

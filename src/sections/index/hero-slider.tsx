@@ -1,12 +1,18 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { isBrowser } from "./../../utils/utils";
+
 const HeroSlider = () => {
+
+  if (!isBrowser) {
+    return;
+  }
 
   const [cursorPosition, setCursorPosition] = useState({
     x: window.innerWidth / 2 - 60,
     y: window.innerHeight / 3 - 60,
   });
+
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
 
   const [cursorVariant, setCursorVariant] = useState("default");
