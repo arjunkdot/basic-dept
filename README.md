@@ -38,7 +38,7 @@ I decided to take up [this](https://www.frontendpractice.com/projects/basic) cha
 ### Built with
 
 - [Gatsby JS](https://gatsbyjs.com/)
-- [TypeScript](typescriptlang.org)
+- [TypeScript](https://typescriptlang.org)
 - [Framer Motion](https://www.framer.com/motion/)
 - [GraphQL](https://graphql.org/)
 - [Tailwind CSS](https://tailwindcss.com/) - For styles
