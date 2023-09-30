@@ -1,49 +1,56 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby Minimal TypeScript Starter
-</h1>
+# BASIC/DEPT® Website Clone
 
-## 🚀 Quick start
+I decided to take up [this](https://www.frontendpractice.com/projects/basic) challenge at [Frontend Practice](https://www.frontendpractice.com) and rebuild the BASIC/DEPT® landing page using Gatsby, along with Tailwind CSS in TypeScript. This is my solution. Feel free to have a peek at the source or take the live version out for a spin.
 
-1.  **Create a Gatsby site.**
+## Table of contents
+- [Overview](#overview)
+  - [The challenge](#the-challenge)
+  - [Screenshot](#screenshot)
+  - [Links](#links)
+- [My process](#my-process)
+  - [Built with](#built-with)
+  - [What I learned](#what-i-learned)
+  - [Continued development](#continued-development)
+- [Author](#author)
 
-    Use the Gatsby CLI to create a new site, specifying the minimal TypeScript starter.
 
-    ```shell
-    # create a new Gatsby site using the minimal TypeScript starter
-    npm init gatsby -- -ts
-    ```
+### The challenge
 
-2.  **Start developing.**
+- Try to re-build the landing page and make it look as much close as possible.
+- Make sure the website look good on all screens.
+- **Bonus**: Build the draggable slider under "Featured Engagements".
+- **Bonus**: Try recreating the initial page load animations.
 
-    Navigate into your new site’s directory and start it up.
+### Screenshot
 
-    ```shell
-    cd my-gatsby-site/
-    npm run develop
-    ```
+![](./screenshot.gif)
 
-3.  **Open the code and start customizing!**
+### Links
 
-    Your site is now running at http://localhost:8000!
+- Solution URL: [GitHub](https://github.com/arjunkdot/basic-dept/)
+- Live Site URL: [Live Demo](https://basic-dept-arjunkdot.netlify.app/)
 
-    Edit `src/pages/index.tsx` to see your site update in real-time!
 
-4.  **Learn more**
+## My process
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Tutorials](https://www.gatsbyjs.com/docs/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Guides](https://www.gatsbyjs.com/docs/how-to/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter-ts)
+### Built with
 
-## 🚀 Quick start (Netlify)
+- [Gatsby JS](https://gatsbyjs.com/)
+- [TypeScript](typescriptlang.org)
+- [Framer Motion](https://www.framer.com/motion/)
+- [GraphQL](https://graphql.org/)
+- [Tailwind CSS](https://tailwindcss.com/) - For styles
 
-Deploy this starter with one click on [Netlify](https://app.netlify.com/signup):
+### What I learned
 
-[<img src="https://www.netlify.com/img/deploy/button.svg" alt="Deploy to Netlify" />](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-minimal-ts)
+- Learned to use Gatsby to build websites.
+- Learned how to write basic GraphQL queries. 
+- Learned to use Framer Motion to implement a 
+
+
+## Author
+
+- Frontend Mentor - [arjunkdot](https://www.frontendmentor.io/profile/arjunkdot)
+- Linktree - [arjunkdot](https://linktr.ee/arjunkdot)
+- Twitter - [@arjunkdot](https://www.twitter.com/arjunkdot)
+
