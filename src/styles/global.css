@@ -190,5 +190,5 @@ body {
   text-decoration: underline;
 }
 .grid-showcase-image, .featured-news-image{
-  position: absolute;
+  position: absolute !important;
 }
